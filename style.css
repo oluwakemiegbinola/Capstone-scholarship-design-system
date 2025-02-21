@@ -1,0 +1,63 @@
+/* Image Container */
+
+.image-container {
+    display: flex;
+    gap: 20px; /* Space between images */
+    flex-wrap: wrap; /* Ensures responsiveness */
+    margin-top: 100px; /* Adds space above the images */
+    margin-bottom: 50px; /* Adds space below the images */
+}
+
+/* Image Styling */
+.image-container img { 
+    width: 100px; /* Adjust width as needed */
+    height: 100px; /* Fixed height */
+    object-fit: ; /* Prevents image distortion */
+    border-radius: 20px; /* Rounded corners */
+}
+
+/* Filter Section */
+.filter-section {
+    width: 450px; /* Adjust width as needed */
+    padding: 15px;
+    background: #8e9dc4; /* Light blue background */
+    border-radius: 10px;
+    border: 1px solid #99c2ff; /* Slightly darker blue border */
+}
+
+/* Filter Layout */
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between filters */
+}
+
+/* Individual Filter Item */
+.filter-item {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Headings */
+h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #003366; /* Dark blue text */
+}
+
+/* Labels */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #003366; /* Dark blue text */
+}
+
+/* Input Fields */
+select, 
+input[type="date"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #003366; /* Dark blue border */
+    width: 100%;
+    background: white; /* Keeps dropdowns white */
+}
