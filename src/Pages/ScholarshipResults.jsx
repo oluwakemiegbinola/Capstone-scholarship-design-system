@@ -1,7 +1,7 @@
-import "./tailwind.css"
 import Navbar from "./Components/Navbar"
 import Sidebar from "./Components/Sidebar"
 import Content from "./Components/Content"
+import SearchBar from "./Components/SearchBar"
 import { useState } from "react"
 
 let ScholarshipResults = () => {
@@ -14,8 +14,8 @@ let ScholarshipResults = () => {
 
     return (
         <div>
-        <Navbar hello={hello} toggle={toggle}/>
-  
+        <Navbar />
+        <SearchBar hello={hello} toggle={toggle} />
         <div className="flex">
           <Sidebar hello={hello} />
           <Content />

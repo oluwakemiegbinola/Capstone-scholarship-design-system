@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../assets/image/nice.png";
 import students from "../assets/image/Rectangle 393.png";
+import { Link } from "react-router-dom";
 
 const ScholarshipSearch = () => {
   return (
@@ -44,7 +45,7 @@ const ScholarshipSearch = () => {
 
             {/* Buttons */}
             <div className="flex justify-between items-center mt-4">
-              <button className="bg-blue-600 text-white px-4 py-2 rounded">Search</button>
+             <Link to={`/scholarship-results`}> <button className="bg-blue-600 text-white px-4 py-2 rounded cursor-pointer">Search</button></Link>
               <button className="text-blue-700 underline">Reset</button>
             </div>
           </div>

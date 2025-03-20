@@ -10,19 +10,13 @@ let Content = () => {
         console.log("change grid"+ grid);
     }
 
-    let [norm, isNorm] = useState(true);
-
-    let ChangeNorm = () => {
-        isNorm(!norm)
-        console.log("change norm"+ norm);
-    }
-
 
 
   return (
-    <div className=" rounded-lg flex-1">
+<div className='flex-1'>
+<div className=" rounded-lg">
         <div className="min-[700px]:mx-10 p-4 bg-[#F4F5FF] rounded-md">
-            <p className="text-center text-3xl pb-3">Now showing results for <span className="font-bold">“STEM Undergraduate Scholarships in Ghana”</span></p>
+            <p className="text-center text-2xl pb-3">21 Scholarships found for <span className="font-bold">“STEM Undergraduate Scholarships in Ghana”</span></p>
             <hr />
             <div className="flex justify-between pt-4 items-center">
                 <p>RESULTS 21</p>
@@ -44,23 +38,27 @@ let Content = () => {
             </div>
 
             <div className='pt-6'>
-                 <Card grid={grid} norm={norm} />
+                 <Card grid={grid} />
             </div>
 
-            <div className='pagination flex items-center justify-around pt-10'>
+
+        </div>
+    </div>
+
+    <div className='pagination flex max-[800px]:flex-col max-[800px]:space-y-6 items-center justify-around pt-10'>
                 <button className='p-2 rounded-md border-1 border-gray-500 cursor-pointer'>Previous</button>
-                <div className='pages flex gap-10'>
-                    <p>1</p>
+                <div className='pages flex gap-10 text-[#0000FE]'>
+                    <p className='bg-[#F4F5FF] pl-4 pr-4 rounded-md'>1</p>
                     <p>2</p>
+                    <p>.</p>
+                    <p>.</p>
+                    <p>.</p>
                     <p>3</p>
-                    <p>4</p>
-                    <p>5</p>
                 </div>
                 <button className='p-2 pr-6 pl-6 rounded-md border-1 border-gray-500 cursor-pointer'>next</button>
                 <p className='text-gray-500'>Showing 1-10 of 21 results</p>
             </div>
-        </div>
-    </div>
+</div>
   );
 };
 

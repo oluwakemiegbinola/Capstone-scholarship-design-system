@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import SignUpPage from "./Pages/SignUpPage";
 import LoginPage from "./Pages/LoginPage"; // Correct the name of your login page
 import ScholarshipSearch from "./Pages/ScholarshipSearch"; // Ensure this path is correct
-import ScholarshipResults from "./Pages/SchlorshipResults";
+import ScholarshipResults from "./Pages/ScholarshipResults";
 
 function App() {
   return (
