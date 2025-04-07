@@ -1,6 +1,6 @@
 import { cardInfo } from "./cardInfo"
 import { useState } from "react"
-
+import { Link } from "react-router-dom"
 
 
 let Card = (props) => {
@@ -53,7 +53,7 @@ let Card = (props) => {
 
                             <div className="flex gap-1 max-[800px]:w-40 max-[800px]:place-self-center items-center max-[700px]:pt-2">
                                 <button className="bg-[#0000FE] p-2 rounded-md text-white cursor-pointer max-[700px]:text-xs">{details.apply}</button>
-                                <img src="images/info icon.png" className="bg-[#DCDDFF] w-fit p-2 rounded-md" alt="info" />
+                                <Link to={'/info'}><img src="images/info icon.png" className="bg-[#DCDDFF] w-fit p-2 rounded-md" alt="info" /></Link>
                                 <img src={details.bookmark} className={`bg-[#DCDDFF] w-fit p-2 rounded-md`} alt="bookmark" />
                             </div>
                         </div>

@@ -21,7 +21,7 @@ let SearchBar = (props) => {
         <img src="images/search.png" />
         <input
           type="search"
-          className="p-2 w-90 "
+          className="p-2 w-100"
           placeholder="STEM Undergraduate in Ghana"
         />
       </div>

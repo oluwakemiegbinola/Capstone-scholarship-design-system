@@ -4,6 +4,7 @@ import SignUpPage from "./Pages/SignUpPage";
 import LoginPage from "./Pages/LoginPage"; // Correct the name of your login page
 import ScholarshipSearch from "./Pages/ScholarshipSearch"; // Ensure this path is correct
 import ScholarshipResults from "./Pages/ScholarshipResults";
+import Info from "./Pages/Info";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
 
         {/* Scholarship Search results page */}
         <Route path="/scholarship-results" element={<ScholarshipResults />} />
+
+        {/* Scholarship info page */}
+        <Route path="/info" element={<Info />} />
 
         {/* Catch-all route for any undefined paths */}
         <Route path="*" element={<Navigate to="/signup" />} />

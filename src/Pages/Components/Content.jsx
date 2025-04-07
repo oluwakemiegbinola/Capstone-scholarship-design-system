@@ -55,7 +55,7 @@ let Content = () => {
                     <p>.</p>
                     <p>3</p>
                 </div>
-                <button className='p-2 pr-6 pl-6 rounded-md border-1 border-gray-500 cursor-pointer'>next</button>
+                <button className='p-2 pr-6 pl-6 rounded-md border-1 border-gray-500 cursor-pointer'>Next</button>
                 <p className='text-gray-500'>Showing 1-10 of 21 results</p>
             </div>
 </div>
