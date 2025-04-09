@@ -4,20 +4,15 @@ import dropdownTxt from "./Components/dropdown";
 import Footer from "./Components/Footer";
 
 let Info = () => {
-    let [show, isShow] = useState(false);
+  let [show] = useState(false);
 
-    let tog = () => {
-        isShow(!show)
-        console.log(show)
-    }
+  let [dropdown] = useState(dropdownTxt);
 
-    let [dropdown, isDrowpdown] = useState(dropdownTxt)
+  const [activeKey, setActiveKey] = useState(null);
 
-    const [activeKey, setActiveKey] = useState(null);
-
-    const handleClick = (key) => {
-        setActiveKey(prev => (prev === key ? null : key));
-      };
+  const handleClick = (key) => {
+    setActiveKey((prev) => (prev === key ? null : key));
+  };
 
   return (
     <div>
@@ -52,7 +47,9 @@ let Info = () => {
       </div>
 
       <div className="pt-20 mx-14">
-        <p className="text-[#0000FE] text-4xl font-bold max-[700px]:text-center">Overview</p>
+        <p className="text-[#0000FE] text-4xl font-bold max-[700px]:text-center">
+          Overview
+        </p>
         <div className="mx-6">
           <div className="space-x-6 pt-4 max-[700px]:flex max-[700px]:flex-col space-y-4">
             <button className="p-2 bg-[#EBEDFF] w-fit rounded-md">
@@ -87,7 +84,9 @@ let Info = () => {
               <div className="flex items-center gap-4">
                 <img src="images/tuition-blue.png" alt="tuition blue" />
                 <div>
-                  <p className="min-[700px]:text-4xl">Full Funding + Research Grant </p>
+                  <p className="min-[700px]:text-4xl">
+                    Full Funding + Research Grant{" "}
+                  </p>
                   <p>Scholarship Value</p>
                 </div>
               </div>
@@ -125,7 +124,9 @@ let Info = () => {
 
       <div className="bg-[#EBEDFF] p-2 text-justify">
         <div className="mx-14">
-          <p className="text-[#0000FE] text-2xl max-[700px]:text-center">About Scholarship</p>
+          <p className="text-[#0000FE] text-2xl max-[700px]:text-center">
+            About Scholarship
+          </p>
           <div className="space-y-4">
             <p>
               The Ghana Stem Excellence Scholarship is designed to support
@@ -148,7 +149,9 @@ let Info = () => {
       </div>
 
       <div className="mx-14 mt-10">
-        <p className="text-[#0000FE] text-2xl max-[700px]:text-center">Eligibity Criteria</p>
+        <p className="text-[#0000FE] text-2xl max-[700px]:text-center">
+          Eligibity Criteria
+        </p>
         <p>
           The{" "}
           <span className="font-bold">Ghana STEM Excellence Scholarship </span>
@@ -301,7 +304,9 @@ let Info = () => {
       </div>
 
       <div className="mx-14 pt-10">
-        <p className="text-[#0000FE] text-2xl max-[700px]:text-center">How To Apply</p>
+        <p className="text-[#0000FE] text-2xl max-[700px]:text-center">
+          How To Apply
+        </p>
         <p className="pb-10">
           Applying for the{" "}
           <span className="font-bold">Ghana STEM Excellence Scholarship</span>is
@@ -310,59 +315,88 @@ let Info = () => {
         </p>
 
         <div className="space-y-3">
-        <div>
+          <div>
             <img src="images/1.png" className="mx-auto" alt="1" />
-        </div>
-        <div>
+          </div>
+          <div>
             <img src="images/2.png" className="mx-auto" alt="1" />
-        </div>
-        <div>
+          </div>
+          <div>
             <img src="images/3.png" className="mx-auto" alt="1" />
-        </div>
-        <div>
+          </div>
+          <div>
             <img src="images/4.png" className="mx-auto" alt="1" />
-        </div>
-        <div>
+          </div>
+          <div>
             <img src="images/5.png" className="mx-auto" alt="1" />
-        </div>
-        <p className="text-center min-[700px]:text-2xl cursor-pointer">For further details, visit <span className="font-bold text-[#0000FE]">scholarships.getfund.gov.gh</span> or contact scholarsips@getfund.gov</p>
+          </div>
+          <p className="text-center min-[700px]:text-2xl cursor-pointer">
+            For further details, visit{" "}
+            <span className="font-bold text-[#0000FE]">
+              scholarships.getfund.gov.gh
+            </span>{" "}
+            or contact scholarsips@getfund.gov
+          </p>
         </div>
       </div>
 
-      <div className={`h-[60vh] flex justify-center items-center bg-cover bg-center gap-2 mt-10 `}
-      style={{ backgroundImage: `url(${"../images/stemFuture.png"})` }}>
+      <div
+        className={`h-[60vh] flex justify-center items-center bg-cover bg-center gap-2 mt-10 `}
+        style={{ backgroundImage: `url(${"../images/stemFuture.png"})` }}
+      >
         <div className="space-y-10 text-center text-white">
-        <p className="min-[700px]:text-6xl">Your <span className="font-semibold text-[#0000FE]">STEM</span> future starts here</p>
-        <p className="min-[700px]:text-2xl">Don’t miss your chance to join Ghana’s next generation of innovators and changemakers.</p>
-        <button className="bg-[#0000FE] p-4 pl-8 pr-8 rounded-md text-white cursor-pointer max-[700px]:text-xs text-4xl">
-                  Apply now
-                </button>
+          <p className="min-[700px]:text-6xl">
+            Your <span className="font-semibold text-[#0000FE]">STEM</span>{" "}
+            future starts here
+          </p>
+          <p className="min-[700px]:text-2xl">
+            Don’t miss your chance to join Ghana’s next generation of innovators
+            and changemakers.
+          </p>
+          <button className="bg-[#0000FE] p-4 pl-8 pr-8 rounded-md text-white cursor-pointer max-[700px]:text-xs text-4xl">
+            Apply now
+          </button>
+        </div>
       </div>
+
+      <div>
+        <div className="text-center">
+          <p className="font-bold text-8xl text-[#0000FE]">FAQs</p>
+          <p className="text-4xl text-[#0000FE]">Frequently asked questions</p>
         </div>
 
-        <div>
-            <div className="text-center">
-            <p className="font-bold text-8xl text-[#0000FE]">FAQs</p>
-            <p className="text-4xl text-[#0000FE]">Frequently asked questions</p>
-            </div>
-
-            <div className="pt-10 space-y-4 pb-6">
-                {
-                    dropdown.map((text, key) => {
-                        return (
-                            <div key={key} onClick={() => handleClick(key)} className={`${show ? 'bg-[#EBEDFF]' : ''}  w-[80%] hover:bg-[#EBEDFF] mx-auto border pr-10 pl-10 p-2 rounded-lg cursor-pointer`}>
-                            <p className="flex justify-between items-center gap-10 font-bold ">{text.main} {activeKey === key ? <img src="images/upChevron.png" />: <img src="images/downChevron.png" />}</p>
-                            <p className={`${activeKey === key ? 'visible' : 'hidden'} pt-4`}>{text.side}</p>
-                        </div>
-                        )
-                    })
-                }
-            </div>
-            <button className="bg-[#0000FE] flex items-center gap-2 pl-8 pr-8 rounded-md text-white cursor-pointer mx-auto">
-                  See all FAQs <img src="images/rightArrow.png" alt="right arrow" />
-                </button>
+        <div className="pt-10 space-y-4 pb-6">
+          {dropdown.map((text, key) => {
+            return (
+              <div
+                key={key}
+                onClick={() => handleClick(key)}
+                className={`${
+                  show ? "bg-[#EBEDFF]" : ""
+                }  w-[80%] hover:bg-[#EBEDFF] mx-auto border pr-10 pl-10 p-2 rounded-lg cursor-pointer`}
+              >
+                <p className="flex justify-between items-center gap-10 font-bold ">
+                  {text.main}{" "}
+                  {activeKey === key ? (
+                    <img src="images/upChevron.png" />
+                  ) : (
+                    <img src="images/downChevron.png" />
+                  )}
+                </p>
+                <p
+                  className={`${activeKey === key ? "visible" : "hidden"} pt-4`}
+                >
+                  {text.side}
+                </p>
+              </div>
+            );
+          })}
         </div>
-        <Footer />
+        <button className="bg-[#0000FE] flex items-center gap-2 pl-8 pr-8 rounded-md text-white cursor-pointer mx-auto">
+          See all FAQs <img src="images/rightArrow.png" alt="right arrow" />
+        </button>
+      </div>
+      <Footer />
     </div>
   );
 };
