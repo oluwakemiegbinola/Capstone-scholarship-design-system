@@ -1,8 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+
 import SignUpPage from "./Pages/SignUpPage";
-import LoginPage from "./Pages/LoginPage"; // Correct the name of your login page
-import ScholarshipSearch from "./Pages/ScholarshipSearch"; // Ensure this path is correct
+import LoginPage from "./Pages/LoginPage";
+import ScholarshipSearch from "./Pages/ScholarshipSearch";
+import ScholarshipSecondPortal from "./Pages/ScholarshipSecondportal";
+import Scholarshiportal from "./Pages/Scholarshiportal";
+import Applicationportalthree from "./Pages/Applicationportalthree";
 
 function App() {
   return (
@@ -11,16 +15,17 @@ function App() {
         {/* Redirect root to /signup */}
         <Route path="/" element={<Navigate to="/signup" />} />
 
-        {/* Sign-up page */}
+        {/* Auth Routes */}
         <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/login" element={<LoginPage />} />
 
-        {/* Login page */}
-        <Route path="/login" element={<LoginPage />} /> {/* Added login page route */}
+        {/* Scholarship Pages */}
+        <Route path="/scholarship-search" element={<ScholarshipSearch />} />
+        <Route path="/scholarship-secondportal" element={<ScholarshipSecondPortal />} />
+        <Route path="/scholarshi-portal" element={<Scholarshiportal />} />
+        <Route path="/application-portalthree" element={<Applicationportalthree />} />
 
-        {/* Scholarship Search page */}
-        <Route path="/scholarship-search" element={<ScholarshipSearch />} /> {/* Adjusted route to lowercase */}
-
-        {/* Catch-all route for any undefined paths */}
+        {/* Fallback */}
         <Route path="*" element={<Navigate to="/signup" />} />
       </Routes>
     </Router>
