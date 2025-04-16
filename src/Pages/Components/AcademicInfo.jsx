@@ -1,6 +1,6 @@
-const AcademicInfo = () => {
+const AcademicInfo = () => { 
     return (
-        <div className="min-h-screen bg-gray-100 flex justify-center p-6">
+        <div className="min-h-screen bg-white flex justify-center p-6"> {/* ⬅️ changed to bg-white */}
             <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
                 {/* Left - Academic Information Form */}
                 <div className="col-span-2 bg-white p-6 rounded-lg shadow-md">
@@ -51,7 +51,7 @@ const AcademicInfo = () => {
                     </div>
                 </div>
 
-                {/* Right - Buttons (Moved Up & No Background) */}
+                {/* Right - Buttons (No Background) */}
                 <div className="flex flex-col justify-start gap-4 self-start">
                     <button className="px-5 py-2 bg-blue-500 text-white rounded-md w-full">
                         Save Progress

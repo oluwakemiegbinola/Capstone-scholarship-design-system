@@ -2,10 +2,10 @@ import Navbar from "./Components/Navbar";
 import Background from "./Components/Background";
 import Steps from "./Components/Steps";
 import Academicinfo from "./Components/AcademicInfo";
-import UploadList from "./Components/UploadList";
+import UploadList2 from "./Components/UploadList2";
 import { useState, useEffect } from "react";
 
-let Scholarshiportal = () => {
+let Steps2Portal = () => {
     let [isOpen, setIsOpen] = useState(true);
 
     let toggle = () => {
@@ -23,10 +23,10 @@ let Scholarshiportal = () => {
                 <Background />
                 <Steps />
                 <Academicinfo />    {/* ⬆️ moved here */}
-                <UploadList />      {/* ⬇️ now this comes last */}
+                <UploadList2 />      {/* ⬇️ now this comes last */}
             </div>
         </div>
     );
 };
 
-export default Scholarshiportal;
+export default Steps2Portal;

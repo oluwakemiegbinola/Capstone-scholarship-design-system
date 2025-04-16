@@ -6,6 +6,7 @@ import LoginPage from "./Pages/LoginPage";
 import ScholarshipSearch from "./Pages/ScholarshipSearch";
 import ScholarshipSecondPortal from "./Pages/ScholarshipSecondportal";
 import Scholarshiportal from "./Pages/Scholarshiportal";
+import Steps2Portal from "./Pages/Steps2Portal";
 import Applicationportalthree from "./Pages/Applicationportalthree";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/scholarship-search" element={<ScholarshipSearch />} />
         <Route path="/scholarship-secondportal" element={<ScholarshipSecondPortal />} />
         <Route path="/scholarshi-portal" element={<Scholarshiportal />} />
+        <Route path="/Steps2Portal" element={<Steps2Portal />} />
         <Route path="/application-portalthree" element={<Applicationportalthree />} />
 
         {/* Fallback */}
