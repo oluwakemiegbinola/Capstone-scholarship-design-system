@@ -43,6 +43,7 @@ const AcademicInfo = () => {
                     {/* Upload Transcript */}
                     <label className="block text-sm font-medium mt-4">Upload Transcript</label>
                     <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                    <div className="text-4xl text-gray-400 mb-2">☁️</div>
                         <p>Choose a file or drag and drop here</p>
                         <p className="text-xs text-gray-500">* We support PDF format, max size: 5MB</p>
                         <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md">

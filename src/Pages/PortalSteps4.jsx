@@ -1,10 +1,11 @@
-import Navbar from "./Components/Navbar"; 
-import Steps from "./Components/Steps";
+import Navbar from "./Components/Navbar";
 import Background from "./Components/Background";
+import Steps2 from "./Components/Steps2";
+import Sop from "./Components/Sop";
 
 import { useState, useEffect } from "react";
 
-let Applicationportalthree = () => {
+let PortalSteps4 = () => {
     let [isOpen, setIsOpen] = useState(true);
 
     let toggle = () => {
@@ -16,17 +17,18 @@ let Applicationportalthree = () => {
     }, [isOpen]);
 
     return (
-        <div>
+
+        
+        <div className="min-h-screen bg-white text-gray-400">
             <Navbar />
-            <div className="flex flex-col -mt-1">
+            <div className="flex flex-col space-y-2 px-4"> {/* Tighter spacing */}
                 <Background />
-                <div className="mt-12">
-                    <Steps />
-                </div>
+                <Steps2 />
+                <Sop/>
+              
             </div>
         </div>
     );
 };
 
-export default Applicationportalthree;
-
+export default PortalSteps4;

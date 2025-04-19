@@ -1,10 +1,11 @@
 import Navbar from "./Components/Navbar";
 import Background from "./Components/Background";
-import Steps from "./Components/Steps";
-import UploadList from "./Components/UploadList";
+import Steps2 from "./Components/Steps2";
+import AcademicInfo from "./Components/AcademicInfo";
+import UploadList2 from "./Components/UploadList2";
 import { useState, useEffect } from "react";
 
-let Scholarshiportal = () => {
+let PortalSteps2 = () => {
     let [isOpen, setIsOpen] = useState(true);
 
     let toggle = () => {
@@ -22,11 +23,12 @@ let Scholarshiportal = () => {
             <Navbar />
             <div className="flex flex-col space-y-2 px-4"> {/* Tighter spacing */}
                 <Background />
-                <Steps />
-                <UploadList />
+                <Steps2 />
+                <AcademicInfo/>
+                <UploadList2 />
             </div>
         </div>
     );
 };
 
-export default Scholarshiportal;
+export default PortalSteps2;
