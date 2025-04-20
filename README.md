@@ -65,6 +65,6 @@ Contribution
 This design system was developed as part of the Ghana STEM Excellence Capstone Project. While it’s currently maintained by the project team, future contributors are welcome to improve and extend it.
 
 Author
-Designed and developed by Egbinola Oluwakemi
-For questions or collaboration, email:Oluwakemiegbinola@gmail.com
+Designed and developed by 
+For questions or collaboration, email:
 Scalable structure to support future form steps, validations, and dynamic behavior
