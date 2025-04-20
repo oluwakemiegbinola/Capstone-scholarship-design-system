@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# React + Vite
-
 This provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
@@ -58,13 +55,14 @@ cd capstone-scholarship-design-system
 npm install
 # or
 yarn install
-
 Run the Dev Server
 
-Contribution
+Contribution:
+
 This design system was developed as part of the Ghana STEM Excellence Capstone Project. While it’s currently maintained by the project team, future contributors are welcome to improve and extend it.
 
-Author
+Author:
+
 Designed and developed by 
 For questions or collaboration, email:
 Scalable structure to support future form steps, validations, and dynamic behavior
