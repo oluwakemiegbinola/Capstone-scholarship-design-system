@@ -60,7 +60,7 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className="min-h-screen mx-auto flex bg-gray-50 relative font-sans">
+    <div className="relative flex min-h-screen mx-auto font-sans bg-gray-50">
       {/* Watermark Logo */}
       <div className="absolute left-[50px] right-0 top-[-70px] flex items-center justify-center pointer-events-none z-0 overflow-hidden">
         <img
@@ -98,7 +98,7 @@ const SignUpPage = () => {
             <form className="mt-8 space-y-8" onSubmit={handleRegister}>
               {/* Full Name */}
               <div>
-                <label className="block text-lg font-medium text-gray-700 mb-2">
+                <label className="block mb-2 text-lg font-medium text-gray-700">
                   Full Name
                 </label>
                 <input
@@ -106,7 +106,7 @@ const SignUpPage = () => {
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleInputChange}
-                  className="w-full px-6 py-5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+                  className="w-full px-6 py-5 text-lg border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter your full name"
                   required
                 />
@@ -114,7 +114,7 @@ const SignUpPage = () => {
 
               {/* Email Address */}
               <div>
-                <label className="block text-lg font-medium text-gray-700 mb-2">
+                <label className="block mb-2 text-lg font-medium text-gray-700">
                   Email Address
                 </label>
                 <input
@@ -122,7 +122,7 @@ const SignUpPage = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-6 py-5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+                  className="w-full px-6 py-5 text-lg border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter your email"
                   required
                 />
@@ -130,7 +130,7 @@ const SignUpPage = () => {
 
               {/* Password */}
               <div>
-                <label className="block text-lg font-medium text-gray-700 mb-2">
+                <label className="block mb-2 text-lg font-medium text-gray-700">
                   Password
                 </label>
                 <input
@@ -138,7 +138,7 @@ const SignUpPage = () => {
                   name="password"
                   value={formData.password}
                   onChange={handleInputChange}
-                  className="w-full px-6 py-5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+                  className="w-full px-6 py-5 text-lg border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter your password"
                   required
                 />
@@ -146,7 +146,7 @@ const SignUpPage = () => {
 
               {/* Confirm Password */}
               <div>
-                <label className="block text-lg font-medium text-gray-700 mb-2">
+                <label className="block mb-2 text-lg font-medium text-gray-700">
                   Confirm Password
                 </label>
                 <input
@@ -154,7 +154,7 @@ const SignUpPage = () => {
                   name="confirmPassword"
                   value={formData.confirmPassword}
                   onChange={handleInputChange}
-                  className="w-full px-6 py-5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+                  className="w-full px-6 py-5 text-lg border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Confirm your password"
                   required
                 />
@@ -165,7 +165,7 @@ const SignUpPage = () => {
                 <input
                   type="checkbox"
                   id="terms"
-                  className="mr-4 w-7 h-7 mt-1 cursor-pointer"
+                  className="mt-1 mr-4 cursor-pointer w-7 h-7"
                   required
                 />
                 <label htmlFor="terms" className="leading-relaxed">
@@ -184,7 +184,7 @@ const SignUpPage = () => {
               {/* Create Account Button */}
               <button
                 type="submit"
-                className="mt-8 w-full text-white py-5 text-xl rounded-xl hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 cursor-pointer"
+                className="w-full py-5 mt-8 text-xl text-white cursor-pointer rounded-xl hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300"
                 style={{
                   backgroundColor: "rgba(0, 0, 254, 0.61)",
                 }}
@@ -207,7 +207,7 @@ const SignUpPage = () => {
 
             {/* Google Sign-in Button */}
             <a href="#">
-              <button className="w-full flex items-center justify-center px-6 py-5 border border-gray-300 rounded-xl shadow-sm text-lg font-medium text-gray-700 bg-white hover:bg-gray-50 mt-6 cursor-pointer">
+              <button className="flex items-center justify-center w-full px-6 py-5 mt-6 text-lg font-medium text-gray-700 bg-white border border-gray-300 shadow-sm cursor-pointer rounded-xl hover:bg-gray-50">
                 <FcGoogle className="mr-2" />
                 Sign up with Google
               </button>
@@ -220,7 +220,7 @@ const SignUpPage = () => {
           <img
             src={capeImage}
             alt="Graduation Cap"
-            className="w-full h-auto object-contain relative z-10"
+            className="relative z-10 object-contain w-full h-auto"
           />
         </div>
       </div>
@@ -229,7 +229,7 @@ const SignUpPage = () => {
       {/* {popup messagae} */}
 
         {showPopup && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
         {/* Semi-transparent overlay with reduced opacity */}
         <div
           className="fixed inset-0 z-10"
@@ -237,7 +237,7 @@ const SignUpPage = () => {
         ></div>
 
           {/* Popup Container */}
-          <div className="bg-white p-8 rounded-xl shadow-lg text-center max-w-xxl border border-gray-200 relative z-50">
+          <div className="relative z-50 p-8 text-center bg-white border border-gray-200 shadow-lg rounded-xl max-w-xxl">
           <h2
             className="mb-4"
           style={{
