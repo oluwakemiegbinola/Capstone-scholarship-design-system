@@ -9,6 +9,7 @@ import SignUpPage from "./Pages/SignUpPage";
 import LoginPage from "./Pages/LoginPage"; // Correct the name of your login page
 import ScholarshipSearch from "./Pages/ScholarshipSearch"; // Ensure this path is correct
 import PortalStep4 from "./Pages/PortalStep4";
+import PortalStep5 from "./Pages/PortalStep5";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           element={<ScholarshipSearch />}
         />{" "}
         <Route path="/portal-4" element={<PortalStep4 />} />
+        <Route path="/portal-5" element={<PortalStep5 />} />
         {/* Adjusted route to lowercase */}
         {/* Catch-all route for any undefined paths */}
         <Route path="*" element={<Navigate to="/signup" />} />
