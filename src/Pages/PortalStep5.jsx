@@ -6,7 +6,7 @@ import StepOneImage from "../assets/image/portal4/svg/step1.svg";
 import StepTwoImage from "../assets/image/portal4/svg/step2.svg";
 import StepThreeImage from "../assets/image/portal4/svg/step3.svg";
 import StepFourImage from "../assets/image/portal4/svg/step4Colour.svg";
-import StepFiveImage from "../assets/image/portal4/svg/step5.svg";
+import StepFiveImage from "../assets/image/portal4/svg/step5Colour.svg";
 
 export default function PortalStep4() {
   const stepImages = [
@@ -331,7 +331,7 @@ Motivated by that early exposure, I have remained committed to pursuing Computer
 Despite my dedication, financial limitations have posed ongoing challenges, making it difficult at times to access the tools and resources necessary to thrive. The Ghana STEM Excellence Scholarship represents far more than financial aid—it is an opportunity to focus fully on innovation, research, and growth without the burden of economic constraints. With this support, I will be able to engage deeply in research, explore emerging technologies, and develop solutions aligned with Ghana’s development goals.
 I believe the most effective innovations come from individuals who understand the needs of their communities and are driven to make a difference. I am committed to leveraging my education not only for personal advancement but to create inclusive, tech-driven solutions in areas like education, agriculture, and public health. From building smarter systems for schools in rural regions to developing digital tools that make government services more efficient, I envision technology as a bridge to a better future for all.
 Receiving this scholarship would allow me to stay on this path, deepen my expertise, and grow into one of the STEM leaders shaping Ghana’s future. I am sincerely grateful for the opportunity to apply and confident that, with your support, I can transform my passion into lasting impact."
-                    className="w-full rounded-md border-2 border-gray-300 outline-none placeholder:p-4 placeholder:text-pretty"
+                    className="w-full rounded-md border-2 border-gray-300 p-4 outline-none placeholder:text-pretty"
                   ></textarea>
                 </div>
               </div>
@@ -361,6 +361,20 @@ Receiving this scholarship would allow me to stay on this path, deepen my expert
               </p>
             </div>
           </div>
+        </div>
+
+        <div className="w-[60%]">
+          <label id="confirm" className="flex items-center gap-8 text-lg">
+            <span className="text-3xl">
+              <input
+                type="checkbox"
+                id="confirm"
+                className="size-8 checked:bg-blue-500"
+              />
+            </span>
+            I confirm that all information provided is accurate and I agree to
+            the Ghana STEM Excellence Scholarship terms and conditions
+          </label>
         </div>
       </div>
 

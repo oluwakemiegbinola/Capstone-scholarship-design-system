@@ -3,7 +3,7 @@ import GETImage from "../assets/image/portal4/image/get.png";
 import StepOneImage from "../assets/image/portal4/svg/step1.svg";
 import StepTwoImage from "../assets/image/portal4/svg/step2.svg";
 import StepThreeImage from "../assets/image/portal4/svg/step3.svg";
-import StepFourImage from "../assets/image/portal4/svg/step4.svg";
+import StepFourImage from "../assets/image/portal4/svg/step4Colour.svg";
 import StepFiveImage from "../assets/image/portal4/svg/step5.svg";
 import LogoBg from "../assets/image/portal4/svg/logobg.svg";
 import { GoChevronLeft, GoChevronRight } from "react-icons/go";
@@ -94,7 +94,7 @@ export default function PortalStep4() {
                 <textarea
                   rows={20}
                   placeholder="I am applying for the Ghana STEM Excellence Scholarship because I am passionate about using technology to solve real-world problems…"
-                  className="w-[80%] rounded-md border-2 border-gray-300 outline-none placeholder:p-4 placeholder:text-pretty"
+                  className="w-[80%] rounded-md border-2 border-gray-300 p-4 outline-none placeholder:text-pretty"
                 ></textarea>
               </div>
             </div>
@@ -123,7 +123,7 @@ export default function PortalStep4() {
                   <textarea
                     rows={10}
                     placeholder='" e.g. Please focus on my academic challenges and my goal to work in AI ethics. "'
-                    className="w-[80%] rounded-md border-2 border-gray-300 outline-none placeholder:p-4 placeholder:text-pretty"
+                    className="w-[80%] rounded-md border-2 border-gray-300 p-4 outline-none placeholder:text-pretty"
                   ></textarea>
 
                   <button className="absolute right-63 bottom-5 rounded-lg bg-blue-400 px-4 py-2 text-gray-100">
