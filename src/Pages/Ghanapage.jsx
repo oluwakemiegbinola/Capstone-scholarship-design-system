@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../component3/Header";
+import Header from "../component3/Header2";
 import Banner from "../component3/Banner";
 import NavigationBar from "../component3/NavigationBar"; 
 import ScholarshipComponent from "../component3/ScholarshipComponent"; 

@@ -22,7 +22,7 @@ const Banner3 = () => {
         {/* Text Content */}
         <div className="space-y-6 md:space-y-8 animate-fadeIn">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
-            Application Submitted Successfully 🎉🎓
+            Application Submitted Successfully 🎉👩‍🎓
           </h1>
         </div>
       </div>
