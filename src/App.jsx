@@ -4,7 +4,8 @@ import SignUpPage from "./Pages/SignUpPage";
 import LandingPage from "./Pages/LandingPage";
 import ApplicationPage from "./Pages/ApplicationPage";
 import Ghanapage from "./Pages/Ghanapage";
-import Step3 from "./Pages/Step3"; // Import the new Step3 component
+import Step3 from "./Pages/Step3";
+import StepsCompleted from "./Pages/StepsCompleted"; // Import the new StepsCompleted component
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
 
         {/* Step 3 page */}
         <Route path="/step3" element={<Step3 />} />
+
+        {/* Steps Completed page */}
+        <Route path="/steps-completed" element={<StepsCompleted />} />
 
         {/* Ghana page */}
         <Route path="/ghanapage" element={<Ghanapage />} />

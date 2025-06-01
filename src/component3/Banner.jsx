@@ -4,13 +4,13 @@ import getfundLogo from "../assets/image/form/banner.png"; // Replace with the a
 
 const Banner = () => {
   return (
-    <div className="w-full h-90 relative" role="img" aria-label="Ghana Education Trust Fund banner">
+    <div className="w-full h-60 relative" role="img" aria-label="Ghana Education Trust Fund banner">
       {/* Image with Background Color */}
       <div
         className="w-full h-full bg-[#D8D9F5] bg-contain bg-center"
         style={{
           backgroundImage: `url(${getfundLogo})`,
-          backgroundPosition: "center 100px", // Shifted down by 120px from the top
+          backgroundPosition: "center 5px", // Shifted down by 120px from the top
         }}
         alt="GETFund Logo"
       />

@@ -17,7 +17,7 @@ const Header = ({ setSelectedCategories, selectedCategories }) => {
   };
 
   return (
-    <header className="flex justify-between items-center px-12 py-4 shadow-md bg-white fixed top-0 left-0 w-full z-50 font-avenir">
+    <header className="flex justify-between items-center px-12 py-4 shadow-md bg-white font-avenir">
       <div className="flex items-center space-x-2">
         <img src={logo} alt="Logo" className="w-40 h-20" />
       </div>
@@ -66,8 +66,6 @@ const Header = ({ setSelectedCategories, selectedCategories }) => {
           Apply Now
         </Link>
       </div>
-
-
     </header>
   );
 };
