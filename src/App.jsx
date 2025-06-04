@@ -1,8 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+
 import SignUpPage from "./Pages/SignUpPage";
-import LoginPage from "./Pages/LoginPage"; // Correct the name of your login page
-import ScholarshipSearch from "./Pages/ScholarshipSearch"; // Ensure this path is correct
+import LoginPage from "./Pages/LoginPage";
+import ScholarshipSearch from "./Pages/ScholarshipSearch";
+import ScholarshipSecondPortal from "./Pages/ScholarshipSecondportal";
+import PortalSteps5 from "./Pages/PortalSteps5";
+import PortalSteps4 from "./Pages/PortalSteps4";
+import PortalSteps3 from "./Pages/PortalSteps3";
+import PortalSteps2 from "./Pages/PortalSteps2";
+import PortalSteps1 from "./Pages/PortalSteps1";
 
 function App() {
   return (
@@ -11,16 +18,20 @@ function App() {
         {/* Redirect root to /signup */}
         <Route path="/" element={<Navigate to="/signup" />} />
 
-        {/* Sign-up page */}
+        {/* Auth Routes */}
         <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/login" element={<LoginPage />} />
 
-        {/* Login page */}
-        <Route path="/login" element={<LoginPage />} /> {/* Added login page route */}
+        {/* Scholarship Pages */}
+        <Route path="/scholarship-search" element={<ScholarshipSearch />} />
+        <Route path="/scholarship-secondportal" element={<ScholarshipSecondPortal />} />
+        <Route path="/PortalSteps5" element={<PortalSteps5 />} />
+        <Route path="/PortalSteps4" element={<PortalSteps4 />} />
+        <Route path="/PortalSteps3" element={<PortalSteps3 />} />
+        <Route path="/PortalSteps2" element={<PortalSteps2 />} />
+        <Route path="/PortalSteps1" element={<PortalSteps1 />} />
 
-        {/* Scholarship Search page */}
-        <Route path="/scholarship-search" element={<ScholarshipSearch />} /> {/* Adjusted route to lowercase */}
-
-        {/* Catch-all route for any undefined paths */}
+        {/* Fallback */}
         <Route path="*" element={<Navigate to="/signup" />} />
       </Routes>
     </Router>

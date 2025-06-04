@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+
 import watermark from "../assets/image/first.png";
 import logo from "../assets/image/nice.png";
 import capeImage from "../assets/image/cape.png";
