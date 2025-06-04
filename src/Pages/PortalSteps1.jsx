@@ -1,5 +1,5 @@
 import Navbar from "./Components/Navbar"; 
-import Steps2 from "./Components/Steps2";
+import Steps from "./Components/Steps";
 import Application2 from "./Components/Application2";
 
 import Background from "./Components/Background";
@@ -23,7 +23,7 @@ let PortalSteps1 = () => {
             <div className="flex flex-col -mt-1">
                 <Background />
                 <div className="mt-12">
-                    <Steps2 />
+                    <Steps />
                     <Application2/>
                 </div>
             </div>
