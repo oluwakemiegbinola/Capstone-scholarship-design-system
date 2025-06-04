@@ -1,16 +1,11 @@
 import Navbar from "./Components/Navbar";
 import Background from "./Components/Background";
-<<<<<<< HEAD:src/Pages/PortalSteps3.jsx
-import Steps2 from "./Components/Steps2";
-import AcademicInfo2 from "./Components/AcademicInfo2";
-=======
 import Steps from "./Components/Steps";
 import Academicinfo from "./Components/AcademicInfo";
->>>>>>> branch-Oluwakemi:src/Pages/Scholarshiportal.jsx
-import UploadList from "./Components/UploadList";
+import UploadList2 from "./Components/UploadList2";
 import { useState, useEffect } from "react";
 
-let PortalSteps3 = () => {
+let Steps2Portal = () => {
     let [isOpen, setIsOpen] = useState(true);
 
     let toggle = () => {
@@ -26,22 +21,12 @@ let PortalSteps3 = () => {
             <Navbar />
             <div className="flex flex-col space-y-2 px-4">
                 <Background />
-<<<<<<< HEAD:src/Pages/PortalSteps3.jsx
-                <Steps2 />
-                <AcademicInfo2/>
-                <UploadList />
-=======
                 <Steps />
                 <Academicinfo />    {/* ⬆️ moved here */}
-                <UploadList />      {/* ⬇️ now this comes last */}
->>>>>>> branch-Oluwakemi:src/Pages/Scholarshiportal.jsx
+                <UploadList2 />      {/* ⬇️ now this comes last */}
             </div>
         </div>
     );
 };
 
-<<<<<<< HEAD:src/Pages/PortalSteps3.jsx
-export default PortalSteps3;
-=======
-export default Scholarshiportal;
->>>>>>> branch-Oluwakemi:src/Pages/Scholarshiportal.jsx
+export default Steps2Portal;
