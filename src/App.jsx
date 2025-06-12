@@ -1,12 +1,17 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 import SignUpPage from "./Pages/SignUpPage";
 import LoginPage from "./Pages/LoginPage";
-import ScholarshipSearch from "./Pages/ScholarshipSearch";
-import ScholarshipSecondPortal from "./Pages/ScholarshipSecondportal";
-import Scholarshiportal from "./Pages/Scholarshiportal";
-import Applicationportalthree from "./Pages/Applicationportalthree";
+// import ScholarshipSearch from "./Pages/ScholarshipSearch";
+// import ScholarshipSecondPortal from "./Pages/ScholarshipSecondportal";
+// import Scholarshiportal from "./Pages/Scholarshiportal";
+// import Applicationportalthree from "./Pages/Applicationportalthree";
 
 function App() {
   return (
@@ -20,10 +25,10 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
 
         {/* Scholarship Pages */}
-        <Route path="/scholarship-search" element={<ScholarshipSearch />} />
+        {/* <Route path="/scholarship-search" element={<ScholarshipSearch />} />
         <Route path="/scholarship-secondportal" element={<ScholarshipSecondPortal />} />
         <Route path="/scholarshi-portal" element={<Scholarshiportal />} />
-        <Route path="/application-portalthree" element={<Applicationportalthree />} />
+        <Route path="/application-portalthree" element={<Applicationportalthree />} /> */}
 
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/signup" />} />
