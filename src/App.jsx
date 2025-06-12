@@ -1,4 +1,3 @@
-import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -8,6 +7,7 @@ import {
 
 import SignUpPage from "./Pages/SignUpPage";
 import LoginPage from "./Pages/LoginPage";
+import PortalSteps4 from "./Pages/PortalStep4";
 // import ScholarshipSearch from "./Pages/ScholarshipSearch";
 // import ScholarshipSecondPortal from "./Pages/ScholarshipSecondportal";
 // import Scholarshiportal from "./Pages/Scholarshiportal";
@@ -23,6 +23,7 @@ function App() {
         {/* Auth Routes */}
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/portalStep4" element={<PortalSteps4 />} />
 
         {/* Scholarship Pages */}
         {/* <Route path="/scholarship-search" element={<ScholarshipSearch />} />
@@ -31,7 +32,7 @@ function App() {
         <Route path="/application-portalthree" element={<Applicationportalthree />} /> */}
 
         {/* Fallback */}
-        <Route path="*" element={<Navigate to="/signup" />} />
+        {/* <Route path="*" element={<Navigate to="/signup" />} /> */}
       </Routes>
     </Router>
   );
