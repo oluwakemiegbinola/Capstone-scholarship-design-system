@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-<<<<<<< HEAD
-
-=======
 import { FiEdit, FiMail, FiEye, FiEyeOff, FiArrowLeft } from "react-icons/fi";
->>>>>>> origin/master
 import watermark from "../assets/image/first.png";
 import logo from "../assets/image/nice.png";
 import mobileLogo from "../assets/image/jjy.png";
@@ -64,23 +60,19 @@ const SignUpPage = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <div className="relative flex min-h-screen mx-auto font-sans bg-gray-50">
-=======
-    <div className="min-h-screen mx-auto flex bg-gray-50 relative font-sans">
+    <div className="relative mx-auto flex min-h-screen bg-gray-50 font-sans">
       {/* Back Icon (Mobile Only) */}
-      <div className="absolute top-4 left-4 block md:hidden z-30">
+      <div className="absolute top-4 left-4 z-30 block md:hidden">
         <button
           onClick={handleBack}
-          className="flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full hover:bg-gray-300 transition"
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-200 transition hover:bg-gray-300"
         >
-          <FiArrowLeft className="text-gray-600 text-xl" />
+          <FiArrowLeft className="text-xl text-gray-600" />
         </button>
       </div>
 
->>>>>>> origin/master
       {/* Watermark Logo */}
-      <div className="absolute left-[50px] right-0 top-[-70px] flex items-center justify-center pointer-events-none z-0 overflow-hidden md:block hidden">
+      <div className="pointer-events-none absolute top-[-70px] right-0 left-[50px] z-0 flex hidden items-center justify-center overflow-hidden md:block">
         <img
           src={watermark}
           alt="Watermark"
@@ -91,19 +83,27 @@ const SignUpPage = () => {
 
       {/* Main Content */}
       <div className="flex flex-1 flex-col md:flex-row">
-        <div className="w-full flex-1 flex flex-col items-center justify-center md:justify-start p-0 relative z-20 mt-0 md:mt-[50px]">
-          <div className="w-full max-w-[90%] md:max-w-xl p-4 md:p-8 rounded-lg">
+        <div className="relative z-20 mt-0 flex w-full flex-1 flex-col items-center justify-center p-0 md:mt-[50px] md:justify-start">
+          <div className="w-full max-w-[90%] rounded-lg p-4 md:max-w-xl md:p-8">
             {/* Logo */}
-            <div className="flex justify-center md:justify-start mb-4 md:mb-12">
-              <img src={mobileLogo} alt="Mobile Logo" className="h-16 block md:hidden" />
-              <img src={logo} alt="Desktop Logo" className="h-10 hidden md:block md:h-30" />
+            <div className="mb-4 flex justify-center md:mb-12 md:justify-start">
+              <img
+                src={mobileLogo}
+                alt="Mobile Logo"
+                className="block h-16 md:hidden"
+              />
+              <img
+                src={logo}
+                alt="Desktop Logo"
+                className="hidden h-10 md:block md:h-30"
+              />
             </div>
 
             {/* Form Title */}
-            <h2 className="text-3xl md:text-4xl font-semibold text-start text-[#040498] mb-4 md:mb-2">
+            <h2 className="mb-4 text-start text-3xl font-semibold text-[#040498] md:mb-2 md:text-4xl">
               Create an account
             </h2>
-            <p className="text-start text-base md:text-lg text-[#040498] mt-2 hidden md:block">
+            <p className="mt-2 hidden text-start text-base text-[#040498] md:block md:text-lg">
               Already have an account?{" "}
               <a href="/login" className="text-[#040458] hover:underline">
                 Login
@@ -112,7 +112,7 @@ const SignUpPage = () => {
 
             {/* Google Sign-in Button (Mobile Only) */}
             <a href="#" className="block md:hidden">
-              <button className="w-full flex items-center justify-center px-6 py-3 border border-gray-300 rounded-xl text-base font-medium text-gray-700 bg-white hover:bg-gray-50 mb-6">
+              <button className="mb-6 flex w-full items-center justify-center rounded-xl border border-gray-300 bg-white px-6 py-3 text-base font-medium text-gray-700 hover:bg-gray-50">
                 <FcGoogle className="mr-2" /> Sign up with Google
               </button>
             </a>
@@ -120,13 +120,8 @@ const SignUpPage = () => {
             {/* Form */}
             <form className="space-y-4 md:space-y-8" onSubmit={handleRegister}>
               {/* Full Name */}
-<<<<<<< HEAD
-              <div>
-                <label className="block mb-2 text-lg font-medium text-gray-700">
-=======
               <div className="relative">
-                <label className="hidden md:block text-base md:text-lg font-medium text-[#040498] mb-2">
->>>>>>> origin/master
+                <label className="mb-2 hidden text-base font-medium text-[#040498] md:block md:text-lg">
                   Full Name
                 </label>
                 <input
@@ -134,26 +129,16 @@ const SignUpPage = () => {
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleInputChange}
-<<<<<<< HEAD
-                  className="w-full px-6 py-5 text-lg border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Enter your full name"
-=======
-                  className="w-full px-2 py-3 md:px-6 md:py-5 md:border md:border-gray-300 md:rounded-md md:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-base md:text-lg mobile-input"
+                  className="mobile-input w-full px-2 py-3 text-base focus:ring-2 focus:ring-blue-500 focus:outline-none md:rounded-md md:border md:border-gray-300 md:px-6 md:py-5 md:text-lg md:shadow-sm"
                   placeholder="Full name"
->>>>>>> origin/master
                   required
                 />
-                <FiEdit className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-base block md:hidden" />
+                <FiEdit className="absolute top-1/2 right-3 block -translate-y-1/2 transform text-base text-gray-500 md:hidden" />
               </div>
 
               {/* Email Address */}
-<<<<<<< HEAD
-              <div>
-                <label className="block mb-2 text-lg font-medium text-gray-700">
-=======
               <div className="relative">
-                <label className="hidden md:block text-base md:text-lg font-medium text-[#040498] mb-2">
->>>>>>> origin/master
+                <label className="mb-2 hidden text-base font-medium text-[#040498] md:block md:text-lg">
                   Email Address
                 </label>
                 <input
@@ -161,26 +146,16 @@ const SignUpPage = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-<<<<<<< HEAD
-                  className="w-full px-6 py-5 text-lg border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Enter your email"
-=======
-                  className="w-full px-2 py-3 md:px-6 md:py-5 md:border md:border-gray-300 md:rounded-md md:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-base md:text-lg mobile-input"
+                  className="mobile-input w-full px-2 py-3 text-base focus:ring-2 focus:ring-blue-500 focus:outline-none md:rounded-md md:border md:border-gray-300 md:px-6 md:py-5 md:text-lg md:shadow-sm"
                   placeholder="Email"
->>>>>>> origin/master
                   required
                 />
-                <FiMail className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-base block md:hidden" />
+                <FiMail className="absolute top-1/2 right-3 block -translate-y-1/2 transform text-base text-gray-500 md:hidden" />
               </div>
 
               {/* Password */}
-<<<<<<< HEAD
-              <div>
-                <label className="block mb-2 text-lg font-medium text-gray-700">
-=======
               <div className="relative">
-                <label className="hidden md:block text-base md:text-lg font-medium text-[#040498] mb-2">
->>>>>>> origin/master
+                <label className="mb-2 hidden text-base font-medium text-[#040498] md:block md:text-lg">
                   Password
                 </label>
                 <input
@@ -188,36 +163,26 @@ const SignUpPage = () => {
                   name="password"
                   value={formData.password}
                   onChange={handleInputChange}
-<<<<<<< HEAD
-                  className="w-full px-6 py-5 text-lg border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Enter your password"
-=======
-                  className="w-full px-2 py-3 md:px-6 md:py-5 md:border md:border-gray-300 md:rounded-md md:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-base md:text-lg mobile-input"
+                  className="mobile-input w-full px-2 py-3 text-base focus:ring-2 focus:ring-blue-500 focus:outline-none md:rounded-md md:border md:border-gray-300 md:px-6 md:py-5 md:text-lg md:shadow-sm"
                   placeholder="Password"
->>>>>>> origin/master
                   required
                 />
                 {showPassword ? (
                   <FiEyeOff
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 md:top-[60%] text-gray-500 text-base cursor-pointer"
+                    className="absolute top-1/2 right-3 -translate-y-1/2 transform cursor-pointer text-base text-gray-500 md:top-[60%]"
                     onClick={() => setShowPassword(false)}
                   />
                 ) : (
                   <FiEye
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 md:top-[60%] text-gray-500 text-base cursor-pointer"
+                    className="absolute top-1/2 right-3 -translate-y-1/2 transform cursor-pointer text-base text-gray-500 md:top-[60%]"
                     onClick={() => setShowPassword(true)}
                   />
                 )}
               </div>
 
               {/* Confirm Password */}
-<<<<<<< HEAD
-              <div>
-                <label className="block mb-2 text-lg font-medium text-gray-700">
-=======
               <div className="relative">
-                <label className="hidden md:block text-base md:text-lg font-medium text-[#040498] mb-2">
->>>>>>> origin/master
+                <label className="mb-2 hidden text-base font-medium text-[#040498] md:block md:text-lg">
                   Confirm Password
                 </label>
                 <input
@@ -225,185 +190,147 @@ const SignUpPage = () => {
                   name="confirmPassword"
                   value={formData.confirmPassword}
                   onChange={handleInputChange}
-<<<<<<< HEAD
-                  className="w-full px-6 py-5 text-lg border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Confirm your password"
-=======
-                  className="w-full px-2 py-3 md:px-6 md:py-5 md:border md:border-gray-300 md:rounded-md md:shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-base md:text-lg mobile-input"
+                  className="mobile-input w-full px-2 py-3 text-base focus:ring-2 focus:ring-blue-500 focus:outline-none md:rounded-md md:border md:border-gray-300 md:px-6 md:py-5 md:text-lg md:shadow-sm"
                   placeholder="Confirm password"
->>>>>>> origin/master
                   required
                 />
                 {showConfirmPassword ? (
                   <FiEyeOff
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 md:top-[60%] text-gray-500 text-base cursor-pointer"
+                    className="absolute top-1/2 right-3 -translate-y-1/2 transform cursor-pointer text-base text-gray-500 md:top-[60%]"
                     onClick={() => setShowConfirmPassword(false)}
                   />
                 ) : (
                   <FiEye
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 md:top-[60%] text-gray-500 text-base cursor-pointer"
+                    className="absolute top-1/2 right-3 -translate-y-1/2 transform cursor-pointer text-base text-gray-500 md:top-[60%]"
                     onClick={() => setShowConfirmPassword(true)}
                   />
                 )}
               </div>
 
-<<<<<<< HEAD
-              {/* Terms and Conditions */}
-              <div className="flex items-start mt-6 text-xl text-gray-600">
+              {/* Terms and Conditions (Desktop Only) */}
+              <div className="flex hidden items-start text-sm text-gray-600 md:block md:text-xl">
                 <input
                   type="checkbox"
                   id="terms"
-                  className="mt-1 mr-4 cursor-pointer w-7 h-7"
+                  className="mt-1 mr-4 h-5 w-5 cursor-pointer"
                   required
                 />
-=======
-              {/* Terms and Conditions (Desktop Only) */}
-              <div className="flex items-start text-gray-600 text-sm md:text-xl hidden md:block">
-                <input type="checkbox" id="terms" className="mr-4 w-5 h-5 mt-1 cursor-pointer" required />
->>>>>>> origin/master
                 <label htmlFor="terms" className="leading-relaxed">
                   By clicking create account, you agree to Capsione Scholarship{" "}
-                  <a href="#" className="text-blue-600 hover:underline">Terms of Use</a>{" "}
+                  <a href="#" className="text-blue-600 hover:underline">
+                    Terms of Use
+                  </a>{" "}
                   and{" "}
-                  <a href="#" className="text-blue-600 hover:underline">Conditions</a>.
+                  <a href="#" className="text-blue-600 hover:underline">
+                    Conditions
+                  </a>
+                  .
                 </label>
               </div>
 
               {/* Create Account Button */}
               <button
                 type="submit"
-<<<<<<< HEAD
-                className="w-full py-5 mt-8 text-xl text-white cursor-pointer rounded-xl hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300"
+                className="mt-6 w-full cursor-pointer rounded-xl py-3 text-lg text-white hover:bg-gray-300 focus:ring-2 focus:ring-gray-300 focus:outline-none md:py-5 md:text-xl"
                 style={{
-                  backgroundColor: "rgba(0, 0, 254, 0.61)",
+                  background: "linear-gradient(to right, #0000FE, #4B6CB7)",
                 }}
-=======
-                className="mt-6 w-full text-white py-3 md:py-5 text-lg md:text-xl rounded-xl hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 cursor-pointer"
-                style={{ background: "linear-gradient(to right, #0000FE, #4B6CB7)" }}
->>>>>>> origin/master
               >
                 Register
               </button>
 
               {/* Terms Text (Mobile Only) */}
-              <p className="text-center text-sm text-gray-600 mt-4 block md:hidden">
+              <p className="mt-4 block text-center text-sm text-gray-600 md:hidden">
                 By clicking Creating account you agree to Capstone{" "}
-                <a href="#" className="text-blue-600 hover:underline">Terms and Conditions</a>
+                <a href="#" className="text-blue-600 hover:underline">
+                  Terms and Conditions
+                </a>
               </p>
             </form>
 
             {/* OR Separator (Desktop Only) */}
-            <div className="mt-6 md:mt-8 text-center hidden md:block" style={{ fontFamily: "Futura BK BT", lineHeight: "40px", letterSpacing: "0px" }}>
+            <div
+              className="mt-6 hidden text-center md:mt-8 md:block"
+              style={{
+                fontFamily: "Futura BK BT",
+                lineHeight: "40px",
+                letterSpacing: "0px",
+              }}
+            >
               <span className="text-[#000000]">OR</span>
             </div>
 
-<<<<<<< HEAD
-            {/* Google Sign-in Button */}
-            <a href="#">
-              <button className="flex items-center justify-center w-full px-6 py-5 mt-6 text-lg font-medium text-gray-700 bg-white border border-gray-300 shadow-sm cursor-pointer rounded-xl hover:bg-gray-50">
-                <FcGoogle className="mr-2" />
-                Sign up with Google
-=======
             {/* Google Sign-in Button (Desktop Only) */}
             <a href="#" className="hidden md:block">
-              <button className="w-full flex items-center justify-center px-6 py-5 border border-gray-300 rounded-xl shadow-sm text-lg font-medium text-gray-700 bg-white hover:bg-gray-50 mt-6 cursor-pointer">
+              <button className="mt-6 flex w-full cursor-pointer items-center justify-center rounded-xl border border-gray-300 bg-white px-6 py-5 text-lg font-medium text-gray-700 shadow-sm hover:bg-gray-50">
                 <FcGoogle className="mr-2" /> Sign up with Google
->>>>>>> origin/master
               </button>
             </a>
           </div>
         </div>
 
         {/* Right Section - Image (Desktop Only) */}
-        <div className="hidden md:block w-[550px] h-auto flex items-center justify-start bg-gray-100 p-0 relative before:absolute before:bg-gray-100 before:w-full before:h-full before:content-[''] before:z-10">
-<<<<<<< HEAD
+        <div className="relative flex hidden h-auto w-[550px] items-center justify-start bg-gray-100 p-0 before:absolute before:z-10 before:h-full before:w-full before:bg-gray-100 before:content-[''] md:block">
           <img
             src={capeImage}
             alt="Graduation Cap"
-            className="relative z-10 object-contain w-full h-auto"
+            className="relative z-10 h-auto w-full object-contain"
           />
-        </div>
-      </div>
-
-
-      {/* {popup messagae} */}
-
-        {showPopup && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-        {/* Semi-transparent overlay with reduced opacity */}
-        <div
-          className="fixed inset-0 z-10"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }} // Lighter overlay
-        ></div>
-
-          {/* Popup Container */}
-          <div className="relative z-50 p-8 text-center bg-white border border-gray-200 shadow-lg rounded-xl max-w-xxl">
-          <h2
-            className="mb-4"
-          style={{
-          color: "#040498",
-          fontFamily: "Futura Medium, sans-serif",
-          fontSize: "32.24px",
-          lineHeight: "35.8px",
-          fontWeight: 500,
-           }}
-        >
-        Hey Scholar, Your account has been created
-        </h2>
-
-        <p className="mb-6" 
-        style={{
-          color: "#0B0B0B",
-          fontFamily: "Futura BK BT, sans-serif",
-          fontSize: "24.62px",
-          lineHeight: "41px",
-        }}
-        >
-        Get started to explore all scholarship opportunities here.
-        </p>
-
-        <button
-          onClick={() => setShowPopup(false)}
-          style={{
-          backgroundColor: "#0000FE",
-          width: "311px",
-          height: "57px",
-          color: "#FFFFFF",
-          borderRadius: "8px",
-          fontSize: "18px",
-          fontWeight: "500",
-          transition: "background-color 0.3s ease", // Smooth transition
-          }}
-          onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#0000CC")} // Hover color
-          onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#0000FE")} // Default color
-          >
-          Get Started
-          </button>
-=======
-          <img src={capeImage} alt="Graduation Cap" className="w-full h-auto object-contain relative z-10" />
         </div>
       </div>
 
       {/* Popup Message */}
       {showPopup && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
-          <div className="fixed inset-0 z-10" style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}></div>
-          <div className="bg-white p-8 rounded-xl shadow-lg text-center max-w-xxl border border-gray-200 relative z-50">
-            <h2 className="mb-4" style={{ color: "#040498", fontFamily: "Futura Medium, sans-serif", fontSize: "32.24px", lineHeight: "35.8px", fontWeight: 500 }}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div
+            className="fixed inset-0 z-10"
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+          ></div>
+          <div className="max-w-xxl relative z-50 rounded-xl border border-gray-200 bg-white p-8 text-center shadow-lg">
+            <h2
+              className="mb-4"
+              style={{
+                color: "#040498",
+                fontFamily: "Futura Medium, sans-serif",
+                fontSize: "32.24px",
+                lineHeight: "35.8px",
+                fontWeight: 500,
+              }}
+            >
               Hey Scholar, Your account has been created
             </h2>
-            <p className="mb-6" style={{ color: "#0B0B0B", fontFamily: "Futura BK BT, sans-serif", fontSize: "24.62px", lineHeight: "41px" }}>
+            <p
+              className="mb-6"
+              style={{
+                color: "#0B0B0B",
+                fontFamily: "Futura BK BT, sans-serif",
+                fontSize: "24.62px",
+                lineHeight: "41px",
+              }}
+            >
               Get started to explore all scholarship opportunities here.
             </p>
             <button
               onClick={() => setShowPopup(false)}
-              style={{ backgroundColor: "#0000FE", width: "311px", height: "57px", color: "#FFFFFF", borderRadius: "8px", fontSize: "18px", fontWeight: "500", transition: "background-color 0.3s ease" }}
-              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#0000CC")}
-              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#0000FE")}
+              style={{
+                backgroundColor: "#0000FE",
+                width: "311px",
+                height: "57px",
+                color: "#FFFFFF",
+                borderRadius: "8px",
+                fontSize: "18px",
+                fontWeight: "500",
+                transition: "background-color 0.3s ease",
+              }}
+              onMouseOver={(e) =>
+                (e.currentTarget.style.backgroundColor = "#0000CC")
+              }
+              onMouseOut={(e) =>
+                (e.currentTarget.style.backgroundColor = "#0000FE")
+              }
             >
               Get Started
             </button>
->>>>>>> origin/master
           </div>
         </div>
       )}
@@ -439,4 +366,4 @@ const SignUpPage = () => {
   );
 };
 
-export default SignUpPage;  
+export default SignUpPage;
