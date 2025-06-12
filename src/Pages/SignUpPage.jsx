@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-
+import { FiEdit, FiMail, FiEye, FiEyeOff, FiArrowLeft } from "react-icons/fi";
 import watermark from "../assets/image/first.png";
 import logo from "../assets/image/nice.png";
+import mobileLogo from "../assets/image/jjy.png";
 import capeImage from "../assets/image/cape.png";
 
-// Mock register function for testing
+// Mock register function
 const register = async (userData) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -14,7 +15,7 @@ const register = async (userData) => {
       } else {
         reject(new Error("Please fill in all fields."));
       }
-    }, 1000); // Simulate a 1-second delay
+    }, 1000);
   });
 };
 
@@ -25,7 +26,8 @@ const SignUpPage = () => {
     password: "",
     confirmPassword: "",
   });
-
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
 
   const handleInputChange = (e) => {
@@ -38,8 +40,6 @@ const SignUpPage = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    console.log("Form submission intercepted");
-
     const userData = {
       fullName: formData.fullName,
       email: formData.email,
@@ -47,59 +47,81 @@ const SignUpPage = () => {
       confirmPassword: formData.confirmPassword,
     };
 
-    console.log("Form data:", userData);
-
     try {
-      console.log("Calling register API...");
-      const response = await register(userData); // Call the register function
-      console.log("Registration successful:", response);
-      setShowPopup(true); // Show the popup
+      const response = await register(userData);
+      setShowPopup(true);
     } catch (error) {
-      console.error("Registration failed:", error);
       alert(`Registration failed: ${error.message}`);
     }
   };
 
+  const handleBack = () => {
+    console.log("Back button clicked");
+  };
+
   return (
-    <div className="relative flex min-h-screen mx-auto font-sans bg-gray-50">
+    <div className="relative mx-auto flex min-h-screen bg-gray-50 font-sans">
+      {/* Back Icon (Mobile Only) */}
+      <div className="absolute top-4 left-4 z-30 block md:hidden">
+        <button
+          onClick={handleBack}
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-200 transition hover:bg-gray-300"
+        >
+          <FiArrowLeft className="text-xl text-gray-600" />
+        </button>
+      </div>
+
       {/* Watermark Logo */}
-      <div className="absolute left-[50px] right-0 top-[-70px] flex items-center justify-center pointer-events-none z-0 overflow-hidden">
+      <div className="pointer-events-none absolute top-[-70px] right-0 left-[50px] z-0 flex hidden items-center justify-center overflow-hidden md:block">
         <img
           src={watermark}
           alt="Watermark"
           className="h-[265vh] w-[700px] opacity-7"
-          style={{
-            transform: "rotate(5deg)",
-          }}
+          style={{ transform: "rotate(5deg)" }}
         />
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-1">
-        {/* Left Section - Form */}
-        <div className="w-full flex-1 flex flex-col items-center justify-start p-0 relative z-20 mt-[50px]"> {/* z-20 for sign-up page */}
-          <div className="w-full max-w-xl p-8 rounded-lg">
+      <div className="flex flex-1 flex-col md:flex-row">
+        <div className="relative z-20 mt-0 flex w-full flex-1 flex-col items-center justify-center p-0 md:mt-[50px] md:justify-start">
+          <div className="w-full max-w-[90%] rounded-lg p-4 md:max-w-xl md:p-8">
             {/* Logo */}
-            <div className="flex justify-start mb-12">
-              <img src={logo} alt="Capsione Scholarship Logo" className="h-30" />
+            <div className="mb-4 flex justify-center md:mb-12 md:justify-start">
+              <img
+                src={mobileLogo}
+                alt="Mobile Logo"
+                className="block h-16 md:hidden"
+              />
+              <img
+                src={logo}
+                alt="Desktop Logo"
+                className="hidden h-10 md:block md:h-30"
+              />
             </div>
 
             {/* Form Title */}
-            <h2 className="text-4xl font-semibold text-start text-[#040498]">
+            <h2 className="mb-4 text-start text-3xl font-semibold text-[#040498] md:mb-2 md:text-4xl">
               Create an account
             </h2>
-            <p className="text-start text-lg text-[#040498] mt-2">
+            <p className="mt-2 hidden text-start text-base text-[#040498] md:block md:text-lg">
               Already have an account?{" "}
               <a href="/login" className="text-[#040458] hover:underline">
                 Login
               </a>
             </p>
 
+            {/* Google Sign-in Button (Mobile Only) */}
+            <a href="#" className="block md:hidden">
+              <button className="mb-6 flex w-full items-center justify-center rounded-xl border border-gray-300 bg-white px-6 py-3 text-base font-medium text-gray-700 hover:bg-gray-50">
+                <FcGoogle className="mr-2" /> Sign up with Google
+              </button>
+            </a>
+
             {/* Form */}
-            <form className="mt-8 space-y-8" onSubmit={handleRegister}>
+            <form className="space-y-4 md:space-y-8" onSubmit={handleRegister}>
               {/* Full Name */}
-              <div>
-                <label className="block mb-2 text-lg font-medium text-gray-700">
+              <div className="relative">
+                <label className="mb-2 hidden text-base font-medium text-[#040498] md:block md:text-lg">
                   Full Name
                 </label>
                 <input
@@ -107,15 +129,16 @@ const SignUpPage = () => {
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleInputChange}
-                  className="w-full px-6 py-5 text-lg border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Enter your full name"
+                  className="mobile-input w-full px-2 py-3 text-base focus:ring-2 focus:ring-blue-500 focus:outline-none md:rounded-md md:border md:border-gray-300 md:px-6 md:py-5 md:text-lg md:shadow-sm"
+                  placeholder="Full name"
                   required
                 />
+                <FiEdit className="absolute top-1/2 right-3 block -translate-y-1/2 transform text-base text-gray-500 md:hidden" />
               </div>
 
               {/* Email Address */}
-              <div>
-                <label className="block mb-2 text-lg font-medium text-gray-700">
+              <div className="relative">
+                <label className="mb-2 hidden text-base font-medium text-[#040498] md:block md:text-lg">
                   Email Address
                 </label>
                 <input
@@ -123,50 +146,73 @@ const SignUpPage = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-6 py-5 text-lg border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Enter your email"
+                  className="mobile-input w-full px-2 py-3 text-base focus:ring-2 focus:ring-blue-500 focus:outline-none md:rounded-md md:border md:border-gray-300 md:px-6 md:py-5 md:text-lg md:shadow-sm"
+                  placeholder="Email"
                   required
                 />
+                <FiMail className="absolute top-1/2 right-3 block -translate-y-1/2 transform text-base text-gray-500 md:hidden" />
               </div>
 
               {/* Password */}
-              <div>
-                <label className="block mb-2 text-lg font-medium text-gray-700">
+              <div className="relative">
+                <label className="mb-2 hidden text-base font-medium text-[#040498] md:block md:text-lg">
                   Password
                 </label>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="password"
                   value={formData.password}
                   onChange={handleInputChange}
-                  className="w-full px-6 py-5 text-lg border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Enter your password"
+                  className="mobile-input w-full px-2 py-3 text-base focus:ring-2 focus:ring-blue-500 focus:outline-none md:rounded-md md:border md:border-gray-300 md:px-6 md:py-5 md:text-lg md:shadow-sm"
+                  placeholder="Password"
                   required
                 />
+                {showPassword ? (
+                  <FiEyeOff
+                    className="absolute top-1/2 right-3 -translate-y-1/2 transform cursor-pointer text-base text-gray-500 md:top-[60%]"
+                    onClick={() => setShowPassword(false)}
+                  />
+                ) : (
+                  <FiEye
+                    className="absolute top-1/2 right-3 -translate-y-1/2 transform cursor-pointer text-base text-gray-500 md:top-[60%]"
+                    onClick={() => setShowPassword(true)}
+                  />
+                )}
               </div>
 
               {/* Confirm Password */}
-              <div>
-                <label className="block mb-2 text-lg font-medium text-gray-700">
+              <div className="relative">
+                <label className="mb-2 hidden text-base font-medium text-[#040498] md:block md:text-lg">
                   Confirm Password
                 </label>
                 <input
-                  type="password"
+                  type={showConfirmPassword ? "text" : "password"}
                   name="confirmPassword"
                   value={formData.confirmPassword}
                   onChange={handleInputChange}
-                  className="w-full px-6 py-5 text-lg border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Confirm your password"
+                  className="mobile-input w-full px-2 py-3 text-base focus:ring-2 focus:ring-blue-500 focus:outline-none md:rounded-md md:border md:border-gray-300 md:px-6 md:py-5 md:text-lg md:shadow-sm"
+                  placeholder="Confirm password"
                   required
                 />
+                {showConfirmPassword ? (
+                  <FiEyeOff
+                    className="absolute top-1/2 right-3 -translate-y-1/2 transform cursor-pointer text-base text-gray-500 md:top-[60%]"
+                    onClick={() => setShowConfirmPassword(false)}
+                  />
+                ) : (
+                  <FiEye
+                    className="absolute top-1/2 right-3 -translate-y-1/2 transform cursor-pointer text-base text-gray-500 md:top-[60%]"
+                    onClick={() => setShowConfirmPassword(true)}
+                  />
+                )}
               </div>
 
-              {/* Terms and Conditions */}
-              <div className="flex items-start mt-6 text-xl text-gray-600">
+              {/* Terms and Conditions (Desktop Only) */}
+              <div className="flex hidden items-start text-sm text-gray-600 md:block md:text-xl">
                 <input
                   type="checkbox"
                   id="terms"
-                  className="mt-1 mr-4 cursor-pointer w-7 h-7"
+                  className="mt-1 mr-4 h-5 w-5 cursor-pointer"
                   required
                 />
                 <label htmlFor="terms" className="leading-relaxed">
@@ -185,18 +231,26 @@ const SignUpPage = () => {
               {/* Create Account Button */}
               <button
                 type="submit"
-                className="w-full py-5 mt-8 text-xl text-white cursor-pointer rounded-xl hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300"
+                className="mt-6 w-full cursor-pointer rounded-xl py-3 text-lg text-white hover:bg-gray-300 focus:ring-2 focus:ring-gray-300 focus:outline-none md:py-5 md:text-xl"
                 style={{
-                  backgroundColor: "rgba(0, 0, 254, 0.61)",
+                  background: "linear-gradient(to right, #0000FE, #4B6CB7)",
                 }}
               >
-                Create account
+                Register
               </button>
+
+              {/* Terms Text (Mobile Only) */}
+              <p className="mt-4 block text-center text-sm text-gray-600 md:hidden">
+                By clicking Creating account you agree to Capstone{" "}
+                <a href="#" className="text-blue-600 hover:underline">
+                  Terms and Conditions
+                </a>
+              </p>
             </form>
 
-            {/* OR Separator */}
+            {/* OR Separator (Desktop Only) */}
             <div
-              className="mt-8 text-center"
+              className="mt-6 hidden text-center md:mt-8 md:block"
               style={{
                 fontFamily: "Futura BK BT",
                 lineHeight: "40px",
@@ -206,84 +260,108 @@ const SignUpPage = () => {
               <span className="text-[#000000]">OR</span>
             </div>
 
-            {/* Google Sign-in Button */}
-            <a href="#">
-              <button className="flex items-center justify-center w-full px-6 py-5 mt-6 text-lg font-medium text-gray-700 bg-white border border-gray-300 shadow-sm cursor-pointer rounded-xl hover:bg-gray-50">
-                <FcGoogle className="mr-2" />
-                Sign up with Google
+            {/* Google Sign-in Button (Desktop Only) */}
+            <a href="#" className="hidden md:block">
+              <button className="mt-6 flex w-full cursor-pointer items-center justify-center rounded-xl border border-gray-300 bg-white px-6 py-5 text-lg font-medium text-gray-700 shadow-sm hover:bg-gray-50">
+                <FcGoogle className="mr-2" /> Sign up with Google
               </button>
             </a>
           </div>
         </div>
 
-        {/* Right Section - Image */}
-        <div className="hidden md:block w-[550px] h-auto flex items-center justify-start bg-gray-100 p-0 relative before:absolute before:bg-gray-100 before:w-full before:h-full before:content-[''] before:z-10">
+        {/* Right Section - Image (Desktop Only) */}
+        <div className="relative flex hidden h-auto w-[550px] items-center justify-start bg-gray-100 p-0 before:absolute before:z-10 before:h-full before:w-full before:bg-gray-100 before:content-[''] md:block">
           <img
             src={capeImage}
             alt="Graduation Cap"
-            className="relative z-10 object-contain w-full h-auto"
+            className="relative z-10 h-auto w-full object-contain"
           />
         </div>
       </div>
 
-
-      {/* {popup messagae} */}
-
-        {showPopup && (
+      {/* Popup Message */}
+      {showPopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-        {/* Semi-transparent overlay with reduced opacity */}
-        <div
-          className="fixed inset-0 z-10"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }} // Lighter overlay
-        ></div>
-
-          {/* Popup Container */}
-          <div className="relative z-50 p-8 text-center bg-white border border-gray-200 shadow-lg rounded-xl max-w-xxl">
-          <h2
-            className="mb-4"
-          style={{
-          color: "#040498",
-          fontFamily: "Futura Medium, sans-serif",
-          fontSize: "32.24px",
-          lineHeight: "35.8px",
-          fontWeight: 500,
-           }}
-        >
-        Hey Scholar, Your account has been created
-        </h2>
-
-        <p className="mb-6" 
-        style={{
-          color: "#0B0B0B",
-          fontFamily: "Futura BK BT, sans-serif",
-          fontSize: "24.62px",
-          lineHeight: "41px",
-        }}
-        >
-        Get started to explore all scholarship opportunities here.
-        </p>
-
-        <button
-          onClick={() => setShowPopup(false)}
-          style={{
-          backgroundColor: "#0000FE",
-          width: "311px",
-          height: "57px",
-          color: "#FFFFFF",
-          borderRadius: "8px",
-          fontSize: "18px",
-          fontWeight: "500",
-          transition: "background-color 0.3s ease", // Smooth transition
-          }}
-          onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#0000CC")} // Hover color
-          onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#0000FE")} // Default color
-          >
-          Get Started
-          </button>
+          <div
+            className="fixed inset-0 z-10"
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+          ></div>
+          <div className="max-w-xxl relative z-50 rounded-xl border border-gray-200 bg-white p-8 text-center shadow-lg">
+            <h2
+              className="mb-4"
+              style={{
+                color: "#040498",
+                fontFamily: "Futura Medium, sans-serif",
+                fontSize: "32.24px",
+                lineHeight: "35.8px",
+                fontWeight: 500,
+              }}
+            >
+              Hey Scholar, Your account has been created
+            </h2>
+            <p
+              className="mb-6"
+              style={{
+                color: "#0B0B0B",
+                fontFamily: "Futura BK BT, sans-serif",
+                fontSize: "24.62px",
+                lineHeight: "41px",
+              }}
+            >
+              Get started to explore all scholarship opportunities here.
+            </p>
+            <button
+              onClick={() => setShowPopup(false)}
+              style={{
+                backgroundColor: "#0000FE",
+                width: "311px",
+                height: "57px",
+                color: "#FFFFFF",
+                borderRadius: "8px",
+                fontSize: "18px",
+                fontWeight: "500",
+                transition: "background-color 0.3s ease",
+              }}
+              onMouseOver={(e) =>
+                (e.currentTarget.style.backgroundColor = "#0000CC")
+              }
+              onMouseOut={(e) =>
+                (e.currentTarget.style.backgroundColor = "#0000FE")
+              }
+            >
+              Get Started
+            </button>
           </div>
         </div>
-        )}
+      )}
 
+      {/* Mobile-Specific Styles */}
+      <style>
+        {`
+          @media (max-width: 767px) {
+            .min-h-screen {
+              background-color: #F5F7FA !important;
+            }
+            .mobile-input {
+              border: none !important;
+              border-bottom: 1px solid #d1d5db !important;
+              border-radius: 0 !important;
+              padding-right: 2.5rem !important;
+              background: transparent !important;
+              box-shadow: none !important;
+              height: 40px !important;
+            }
+            .mobile-input:focus {
+              border-bottom: 1px solid #3b82f6 !important;
+              outline: none !important;
+            }
+            .mobile-input::placeholder {
+              color: #040498 !important;
+              font-weight: 500 !important;
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };
