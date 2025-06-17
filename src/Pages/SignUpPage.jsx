@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { FiEdit, FiMail, FiEye, FiEyeOff, FiArrowLeft } from "react-icons/fi";
-import watermark from "../assets/image/first.png";
-import logo from "../assets/image/nice.png";
-import mobileLogo from "../assets/image/jjy.png";
+import { FiArrowLeft, FiEdit, FiEye, FiEyeOff, FiMail } from "react-icons/fi";
+import { Link } from "react-router-dom";
+
 import capeImage from "../assets/image/cape.png";
+import watermark from "../assets/image/first.png";
+import mobileLogo from "../assets/image/jjy.png";
+import logo from "../assets/image/nice.png";
 
 // Mock register function
 const register = async (userData) => {
@@ -105,9 +107,9 @@ const SignUpPage = () => {
             </h2>
             <p className="mt-2 hidden text-start text-base text-[#040498] md:block md:text-lg">
               Already have an account?{" "}
-              <a href="/login" className="text-[#040458] hover:underline">
+              <Link to="/" className="text-[#040458] hover:underline">
                 Login
-              </a>
+              </Link>
             </p>
 
             {/* Google Sign-in Button (Mobile Only) */}

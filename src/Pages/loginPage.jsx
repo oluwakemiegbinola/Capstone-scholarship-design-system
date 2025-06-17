@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
+
+import capeImage from "../assets/image/cape.png";
 import watermark from "../assets/image/first.png";
 import logo from "../assets/image/nice.png";
-import capeImage from "../assets/image/cape.png";
 
 // Mock login function for testing
 const login = async (userData) => {
@@ -56,9 +58,9 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen mx-auto flex bg-gray-50 relative font-sans">
+    <div className="relative mx-auto flex min-h-screen bg-gray-50 font-sans">
       {/* Watermark Logo */}
-      <div className="absolute left-[50px] right-0 top-[-70px] flex items-center justify-center pointer-events-none z-0 overflow-hidden">
+      <div className="pointer-events-none absolute top-[-70px] right-0 left-[50px] z-0 flex items-center justify-center overflow-hidden">
         <img
           src={watermark}
           alt="Watermark"
@@ -72,29 +74,33 @@ const LoginPage = () => {
       {/* Main Content */}
       <div className="flex flex-1">
         {/* Left Section - Form */}
-        <div className="w-full flex-1 flex flex-col items-center justify-start p-0 relative z-20 mt-[50px]">
-          <div className="w-full max-w-xl p-8 rounded-lg">
+        <div className="relative z-20 mt-[50px] flex w-full flex-1 flex-col items-center justify-start p-0">
+          <div className="w-full max-w-xl rounded-lg p-8">
             {/* Logo */}
-            <div className="flex justify-start mb-12">
-              <img src={logo} alt="Capsione Scholarship Logo" className="h-30" />
+            <div className="mb-12 flex justify-start">
+              <img
+                src={logo}
+                alt="Capstone Scholarship Logo"
+                className="h-30"
+              />
             </div>
 
             {/* Form Title */}
-            <h2 className="text-4xl font-semibold text-start text-[#040498]">
+            <h2 className="text-start text-4xl font-semibold text-[#040498]">
               Login to your account
             </h2>
-            <p className="text-start text-lg text-[#040498] mt-2">
+            <p className="mt-2 text-start text-lg text-[#040498]">
               Don't have an account?{" "}
-              <a href="/signup" className="text-[#040458] hover:underline">
+              <Link to="/signup" className="text-[#040458] hover:underline">
                 Sign Up
-              </a>
+              </Link>
             </p>
 
             {/* Form */}
             <form className="mt-8 space-y-8" onSubmit={handleLogin}>
               {/* Email Address */}
               <div>
-                <label className="block text-lg font-medium text-gray-700 mb-2">
+                <label className="mb-2 block text-lg font-medium text-gray-700">
                   Email Address
                 </label>
                 <input
@@ -102,7 +108,7 @@ const LoginPage = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-6 py-5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+                  className="w-full rounded-md border border-gray-300 px-6 py-5 text-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   placeholder="Enter your email"
                   required
                 />
@@ -110,7 +116,7 @@ const LoginPage = () => {
 
               {/* Password */}
               <div>
-                <label className="block text-lg font-medium text-gray-700 mb-2">
+                <label className="mb-2 block text-lg font-medium text-gray-700">
                   Password
                 </label>
                 <input
@@ -118,22 +124,23 @@ const LoginPage = () => {
                   name="password"
                   value={formData.password}
                   onChange={handleInputChange}
-                  className="w-full px-6 py-5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+                  className="w-full rounded-md border border-gray-300 px-6 py-5 text-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   placeholder="Enter your password"
                   required
                 />
               </div>
 
               {/* Login Button */}
-              <button
-                type="submit"
-                className="mt-8 w-full text-white py-5 text-xl rounded-xl hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 cursor-pointer"
-                style={{
-                  backgroundColor: "rgba(0, 0, 254, 0.61)",
-                }}
-              >
-                Login
-              </button>
+              <Link to="/LandingPage">
+                <button
+                  className="mt-8 w-full cursor-pointer rounded-xl py-5 text-xl text-white hover:bg-gray-300 focus:ring-2 focus:ring-gray-300 focus:outline-none"
+                  style={{
+                    backgroundColor: "rgba(0, 0, 254, 0.61)",
+                  }}
+                >
+                  Login
+                </button>
+              </Link>
             </form>
 
             {/* OR Separator */}
@@ -150,7 +157,7 @@ const LoginPage = () => {
 
             {/* Google Sign-in Button */}
             <a href="#">
-              <button className="w-full flex items-center justify-center px-6 py-5 border border-gray-300 rounded-xl shadow-sm text-lg font-medium text-gray-700 bg-white hover:bg-gray-50 mt-6 cursor-pointer">
+              <button className="mt-6 flex w-full cursor-pointer items-center justify-center rounded-xl border border-gray-300 bg-white px-6 py-5 text-lg font-medium text-gray-700 shadow-sm hover:bg-gray-50">
                 <FcGoogle className="mr-2" />
                 Login with Google
               </button>
@@ -159,18 +166,18 @@ const LoginPage = () => {
         </div>
 
         {/* Right Section - Image */}
-        <div className="hidden md:block w-[550px] h-auto flex items-center justify-start bg-gray-100 p-0 relative before:absolute before:bg-gray-100 before:w-full before:h-full before:content-[''] before:z-10">
+        <div className="relative flex hidden h-auto w-[550px] items-center justify-start bg-gray-100 p-0 before:absolute before:z-10 before:h-full before:w-full before:bg-gray-100 before:content-[''] md:block">
           <img
             src={capeImage}
             alt="Graduation Cap"
-            className="w-full h-auto object-contain relative z-10"
+            className="relative z-10 h-auto w-full object-contain"
           />
         </div>
       </div>
 
       {/* {popup message} */}
       {showPopup && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
           {/* Semi-transparent overlay with reduced opacity */}
           <div
             className="fixed inset-0 z-10"
@@ -178,7 +185,7 @@ const LoginPage = () => {
           ></div>
 
           {/* Popup Container */}
-          <div className="bg-white p-8 rounded-xl shadow-lg text-center max-w-xxl border border-gray-200 relative z-50">
+          <div className="max-w-xxl relative z-50 rounded-xl border border-gray-200 bg-white p-8 text-center shadow-lg">
             <h2
               className="mb-4"
               style={{
@@ -216,8 +223,12 @@ const LoginPage = () => {
                 fontWeight: "500",
                 transition: "background-color 0.3s ease", // Smooth transition
               }}
-              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#0000CC")} // Hover color
-              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#0000FE")} // Default color
+              onMouseOver={(e) =>
+                (e.currentTarget.style.backgroundColor = "#0000CC")
+              } // Hover color
+              onMouseOut={(e) =>
+                (e.currentTarget.style.backgroundColor = "#0000FE")
+              } // Default color
             >
               Get Started
             </button>

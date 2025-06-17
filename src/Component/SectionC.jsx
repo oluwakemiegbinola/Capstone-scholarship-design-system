@@ -1,25 +1,30 @@
-import React, { useState } from 'react';
-import { Search } from 'lucide-react';
+import { Search } from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function SectionC() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#F8F7FF] flex items-center justify-center">
-      <div className="w-[1200px] max-w-full px-4 animate-fade-slide-up">
-        <h1 className="text-5xl font-bold text-center mb-16 whitespace-nowrap animate-fade-in">
-          Find <span className="text-[#0000FF] animate-float inline-block">Scholarships</span> that match your goals
+    <div className="flex min-h-screen items-center justify-center bg-[#F8F7FF]">
+      <div className="animate-fade-slide-up w-[1200px] max-w-full px-4">
+        <h1 className="animate-fade-in mb-16 text-center text-5xl font-bold whitespace-nowrap">
+          Find{" "}
+          <span className="animate-float inline-block text-[#0000FF]">
+            Scholarships
+          </span>{" "}
+          that match your goals
         </h1>
 
-        <div className="max-w-3xl mx-auto">
+        <div className="mx-auto max-w-3xl">
           <div className="flex transform transition-all duration-300 hover:scale-[1.02]">
             <select
-              className="w-[120px] h-[60px] px-4 bg-white border border-r-0 border-gray-200 rounded-l-lg text-gray-600 focus:outline-none appearance-none cursor-pointer transition-colors hover:bg-gray-50"
+              className="h-[60px] w-[120px] cursor-pointer appearance-none rounded-l-lg border border-r-0 border-gray-200 bg-white px-4 text-gray-600 transition-colors hover:bg-gray-50 focus:outline-none"
               style={{
                 backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'right 12px center',
-                backgroundSize: '16px'
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "right 12px center",
+                backgroundSize: "16px",
               }}
             >
               <option>Filter</option>
@@ -30,27 +35,30 @@ function SectionC() {
               <option>By Deadline</option>
             </select>
             <div className="relative flex-1">
-              <div className="absolute left-4 top-1/2 -translate-y-1/2 transition-transform duration-300 transform">
-                <Search className={`w-5 h-5 text-gray-400 transition-all duration-300 ${isHovered ? 'scale-110' : ''}`} />
+              <div className="absolute top-1/2 left-4 -translate-y-1/2 transform transition-transform duration-300">
+                <Search
+                  className={`h-5 w-5 text-gray-400 transition-all duration-300 ${isHovered ? "scale-110" : ""}`}
+                />
               </div>
               <input
                 type="text"
                 placeholder="Search a keyword or select a filter to get started"
-                className="w-full h-[60px] pl-12 pr-4 border border-gray-200 rounded-r-lg focus:outline-none focus:border-blue-300 transition-all duration-300"
+                className="h-[60px] w-full rounded-r-lg border border-gray-200 pr-4 pl-12 transition-all duration-300 focus:border-blue-300 focus:outline-none"
                 onFocus={() => setIsHovered(true)}
                 onBlur={() => setIsHovered(false)}
               />
             </div>
           </div>
 
-          <div className="flex justify-center mt-12">
-            <button 
-              className="bg-[#0000FF] text-white font-semibold px-12 py-4 rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 active:scale-95 animate-search-pulse hover:animate-none"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
+          <div className="mt-12 flex justify-center">
+            <Link
+              to="ScholarshipListing"
+              className="animate-search-pulse transform rounded-lg bg-[#0000FF] px-12 py-4 font-semibold text-white transition-all duration-300 hover:scale-105 hover:animate-none hover:bg-blue-700 active:scale-95"
+              // onMouseEnter={() => setIsHovered(true)}
+              // onMouseLeave={() => setIsHovered(false)}
             >
               Search Scholarships
-            </button>
+            </Link>
           </div>
         </div>
       </div>

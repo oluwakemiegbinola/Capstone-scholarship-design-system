@@ -29,28 +29,13 @@ function App() {
       <Routes>
         {/* Redirect root to /signup */}
         {/* Auth Routes */}
+        <Route path="/" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/login" element={<LoginPage />} />
         <Route path="/portalStep4" element={<PortalSteps4 />} />
-        {/* Scholarship Pages */}
-        {/* <Route path="/scholarship-search" element={<ScholarshipSearch />} />
-        <Route path="/scholarship-secondportal" element={<ScholarshipSecondPortal />} />
-        <Route path="/scholarshi-portal" element={<Scholarshiportal />} />
-        <Route path="/application-portalthree" element={<Applicationportalthree />} /> */}
-        {/* Fallback */}
-        {/* <Route path="*" element={<Navigate to="/signup" />} /> */}
-        {/* Scholarship Pages */}
-        {/* <Route path="/scholarship-search" element={<ScholarshipSearch />} /> */}
         <Route
-          path="/scholarship-secondportal"
+          path="/ScholarshipListing"
           element={<ScholarshipSecondPortal />}
         />
-        {/* <Route path="/scholarshi-portal" element={<Scholarshiportal />} /> */}
-        {/* <Route
-          path="/application-portalthree"
-          element={<Applicationportalthree />}
-        /> */}
-        {/* Fallback */}
         =======
         {/* Welcome page */}
         <Route path="/LandingPage" element={<LandingPage />} />
