@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Placeholder images
 import capstoneLogo from '../assets/image/nice.png';
 import bannerImage from '../assets/image/form/banner.png';
 import userProfile from '../assets/image/form/face.png';
-import pdfIcon from '../assets/image/first.png'; // Placeholder for file icon
+import pdfIcon from '../assets/image/pdfIcon.png'; // Icon for PDF files
+import jpgIcon from '../assets/image/nice.png'; // Icon for JPG/JPEG files
+import pngIcon from '../assets/image/pngIcon.png'; // Icon for PNG files
+import docIcon from '../assets/image/nice.png'; // Icon for Word files
 import number1Image from '../assets/image/form/1.png';
 import number2Image from '../assets/image/form/now.png';
 import number3Image from '../assets/image/form/like.png';
@@ -13,36 +17,57 @@ import number5Image from '../assets/image/form/5.png';
 import { Brain } from 'lucide-react';
 
 const ScholarshipForm = () => {
+  const navigate = useNavigate();
   const [formFilled, setFormFilled] = useState(false);
   const [institutionName, setInstitutionName] = useState('');
   const [programOfStudy, setProgramOfStudy] = useState('');
   const [currentLevel, setCurrentLevel] = useState('');
   const [gpa, setGpa] = useState('');
   const [uploadedFiles, setUploadedFiles] = useState([]);
-  const [progress, setProgress] = useState(0); // Overall progress percentage
+  const [progress, setProgress] = useState(0); 
 
-  // Calculate progress whenever form fields change
   useEffect(() => {
-    const totalFields = 5; // Total number of fields
+    const totalFields = 1; 
     let filledFields = 0;
 
-    if (institutionName.trim()) filledFields++;
-    if (programOfStudy.trim()) filledFields++;
-    if (currentLevel) filledFields++;
-    if (gpa.trim()) filledFields++;
-    if (uploadedFiles.length > 0) filledFields++; // Consider file upload as one field
+    if (uploadedFiles.length > 0) filledFields++; 
 
     const progressPercentage = (filledFields / totalFields) * 100;
     setProgress(progressPercentage);
-  }, [institutionName, programOfStudy, currentLevel, gpa, uploadedFiles]);
+  }, [uploadedFiles]);
+
+  // Function to get the appropriate icon based on file type
+  const getFileIcon = (fileType) => {
+    switch (fileType) {
+      case 'application/pdf':
+        return pdfIcon;
+      case 'image/jpeg':
+      case 'image/jpg':
+        return jpgIcon;
+      case 'image/png':
+        return pngIcon;
+      case 'application/msword':
+      case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+        return docIcon; // Fallback to default icon if docIcon is not provided
+      default:
+        return pdfIcon; // Default fallback
+    }
+  };
 
   const handleFileUpload = (e) => {
     const files = Array.from(e.target.files);
-    const supportedTypes = ['application/pdf', 'image/jpeg', 'image/png', 'image/jpg'];
+    const supportedTypes = [
+      'application/pdf',
+      'image/jpeg',
+      'image/png',
+      'image/jpg',
+      'application/msword',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+    ];
 
     files.forEach(file => {
       if (!supportedTypes.includes(file.type)) {
-        alert(`Unsupported file type: ${file.name}. Please upload PDF, JPG, PNG, or JPEG files.`);
+        alert(`Unsupported file type: ${file.name}. Please upload PDF, JPG, PNG, JPEG, or Microsoft Word (.doc, .docx) files only.`);
         return;
       }
 
@@ -84,8 +109,12 @@ const ScholarshipForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (institutionName && programOfStudy && currentLevel && gpa && uploadedFiles.length > 0) {
+    console.log('Uploaded Files:', uploadedFiles); // Debug log to check uploaded files
+    if (uploadedFiles.length > 0 && uploadedFiles.every(file => !file.error)) {
       setFormFilled(true);
+      navigate('/portalStep4');
+    } else {
+      alert('Please upload at least one valid document (PDF, JPG, PNG, JPEG, or Microsoft Word, max 5MB) before proceeding.');
     }
   };
 
@@ -137,7 +166,7 @@ const ScholarshipForm = () => {
       </div>
 
       {/* Main Content */}
-      <main className="max-w-5xl mx-auto px-2 sm:px-4 lg:px-10 py-10">
+      <main className="max-w-5xl mx-auto px-4 sm:px-4 lg:px-10 py-10">
         {/* Progress Steps */}
         <div className="mb-8">
           {/* Circles and Progress Bars Row */}
@@ -173,7 +202,7 @@ const ScholarshipForm = () => {
               </div>
             </div>
             {/* Step 3 Progress Bar */}
-            <div className="flex items-center w-[12%] -ml-7">
+            <div className="flex items-center w-[10%] -ml-7">
               <div className="w-full h-1 bg-gray-200 rounded-full">
                 <div className="w-0 h-full bg-blue-600 rounded-full" style={{ width: `${progress}%` }}></div>
               </div>
@@ -185,7 +214,7 @@ const ScholarshipForm = () => {
               </div>
             </div>
             {/* Step 4 Progress Bar */}
-            <div className="flex items-center w-[12%] -ml-7">
+            <div className="flex items-center w-[10%] -ml-7">
               <div className="w-full h-1 bg-gray-200 rounded-full">
                 <div className="w-0 h-full bg-blue-600 rounded-full"></div>
               </div>
@@ -197,7 +226,7 @@ const ScholarshipForm = () => {
               </div>
             </div>
             {/* Step 5 Progress Bar */}
-            <div className="flex items-center w-[12%] -ml-7">
+            <div className="flex items-center w-[10%] -ml-7">
               <div className="w-full h-1 bg-gray-200 rounded-full">
                 <div className="w-0 h-full bg-blue-600 rounded-full"></div>
               </div>
@@ -216,7 +245,7 @@ const ScholarshipForm = () => {
             <div className="flex flex-col items-center ml-20">
               <span className="text-sm text-[#000000]/50 mr-4">STEP 2</span>
               <span className="text-sm text-gray-600 ml-4">Academic Information</span>
-              <span className="mt-1 text-xs text-[#0000FE] ml-0 bg-[#CCCFFF] rounded-full px-3 py-1 whitespace-nowrap">Completed</span>
+              <span className="mt-1 text-xs text-[#0000FE] bg-[#CCCFFF] rounded-full px-3 py-1 whitespace-nowrap">Completed</span>
             </div>
             <div className="w-[12%]"></div>
             {/* Step 3 Description and Status */}
@@ -236,8 +265,8 @@ const ScholarshipForm = () => {
             {/* Step 5 Description and Status */}
             <div className="flex flex-col items-center ml-5">
               <span className="text-sm text-[#000000]/50 mr-13">STEP 5</span>
-              <span className="text-sm text-gray-600 whitespace-nowrap -mr-5">Review Application <br /> and Submit</span>
-              <span className="mt-1 text-xs text-gray-400 -ml-10">Not Started</span>
+              <span className="text-gray-600 text-sm whitespace-nowrap -mr-5">Review Application <br /> and Submit</span>
+              <span className="mt-1 text-xs text-gray-400">Not Started</span>
             </div>
             <div className="w-[12%]"></div>
           </div>
@@ -276,14 +305,14 @@ const ScholarshipForm = () => {
                         </svg>
                       </div>
                       <p className="mt-2 mb-2 text-sm text-gray-600">Choose a file or drag and drop here</p>
-                      <p className="text-xs mb-6 text-red-600">file supported: .PDF format, JPG, PNG, JPEG max 5MB</p>
+                      <p className="text-xs mb-6 text-red-600">file supported: .PDF, .JPG, .PNG, .JPEG, .DOC, .DOCX max 5MB</p>
                       <label className="mt-4 inline-block">
                         <span className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 cursor-pointer">Browse files</span>
                         <input
                           type="file"
                           className="hidden"
                           onChange={handleFileUpload}
-                          accept=".pdf,.jpg,.png,.jpeg"
+                          accept=".pdf,.jpg,.png,.jpeg,.doc,.docx"
                           multiple
                         />
                       </label>
@@ -294,27 +323,32 @@ const ScholarshipForm = () => {
                     <div className="mt-4">
                       <h4 className="text-sm font-medium text-gray-700">Uploaded Files</h4>
                       {uploadedFiles.map((file, index) => (
-                        <div key={index} className="flex items-center justify-between bg-gray-50 p-3 rounded-md mt-2">
-                          <div className="flex items-center">
-                            <img src={pdfIcon} alt="File Icon" className="w-6 h-6 mr-2" />
-                            <span>{file.name} ({file.progress}%)</span>
+                        <div key={index} className="flex flex-col bg-gray-50 p-3 rounded-md mt-2">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center">
+                              <img src={getFileIcon(file.type)} alt="File Icon" className="w-6 h-6 mr-2" />
+                              <span className="text-sm text-gray-800">{file.name}</span>
+                              <span className="text-xs text-gray-500 ml-2">({file.progress}%)</span>
+                            </div>
+                            <div className="flex items-center">
+                              <span className={file.error ? 'text-red-600' : file.progress === 100 ? 'text-[#0000FE]' : 'text-blue-600'}>
+                                {file.status}
+                              </span>
+                              {file.progress < 100 && !file.error && (
+                                <button
+                                  type="button"
+                                  className="ml-2 text-blue-600 hover:text-blue-800"
+                                  onClick={() => handleCancelUpload(file.name)}
+                                >
+                                  Cancel
+                                </button>
+                              )}
+                            </div>
                           </div>
-                          <div className="flex items-center">
-                            <div className="w-24 h-1 bg-gray-200 rounded-full mr-2">
+                          <div className="mt-2">
+                            <div className="w-135 h-1 bg-gray-200 rounded-full">
                               <div className="h-full bg-blue-600 rounded-full" style={{ width: `${file.progress}%` }}></div>
                             </div>
-                            <span className={file.error ? 'text-red-600' : file.progress === 100 ? 'text-green-600' : 'text-gray-600'}>
-                              {file.status}
-                            </span>
-                            {file.progress < 100 && !file.error && (
-                              <button
-                                type="button"
-                                className="ml-2 text-blue-600 hover:text-blue-800"
-                                onClick={() => handleCancelUpload(file.name)}
-                              >
-                                Cancel
-                              </button>
-                            )}
                           </div>
                         </div>
                       ))}
@@ -349,25 +383,25 @@ const ScholarshipForm = () => {
 
           {/* Navigation Buttons Moved Down */}
           <div className="md:col-span-3 flex justify-between mt-8">
-            <button
-              type="button"
-              className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 flex items-center"
+            <a
+              href="/application"
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 flex items-center"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
               </svg>
               Back
-            </button>
-            <button
-              type="submit"
-              className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 flex items-center"
+            </a>
+            <a
+              href="/portalStep4"
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 flex items-center"
               onClick={handleSubmit}
             >
               Next
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
               </svg>
-            </button>
+            </a>
           </div>
         </div>
       </main>

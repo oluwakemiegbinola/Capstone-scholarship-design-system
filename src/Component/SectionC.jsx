@@ -52,10 +52,10 @@ function SectionC() {
 
           <div className="mt-12 flex justify-center">
             <Link
-              to="ScholarshipListing"
+              to="/scholarshiplisting" // Corrected to route path
               className="animate-search-pulse transform rounded-lg bg-[#0000FF] px-12 py-4 font-semibold text-white transition-all duration-300 hover:scale-105 hover:animate-none hover:bg-blue-700 active:scale-95"
-              // onMouseEnter={() => setIsHovered(true)}
-              // onMouseLeave={() => setIsHovered(false)}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
             >
               Search Scholarships
             </Link>

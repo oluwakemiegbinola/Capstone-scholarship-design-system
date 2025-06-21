@@ -31,11 +31,12 @@ const Banner2 = () => {
 
         {/* Button */}
         <div className="mt-20 md:mt-12 animate-float">
-          <button 
+          <a 
+            href="/application"
             className="bg-[#0000FE] hover:bg-blue-700 text-white font-semibold py-4 px-18 rounded-lg text-lg md:text-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
           >
             Apply Now
-          </button>
+          </a>
         </div>
       </div>
     </div>

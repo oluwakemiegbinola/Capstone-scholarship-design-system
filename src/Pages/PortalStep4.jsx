@@ -169,19 +169,25 @@ export default function PortalStep4() {
       </div>
 
       <div className="my-24 flex justify-between px-2">
-        <button className="inline-flex items-center gap-4 rounded-lg bg-blue-700 px-8 py-2 text-xl font-medium text-white">
+        <a
+          href="/step3"
+          className="inline-flex items-center gap-4 rounded-lg bg-blue-700 px-8 py-2 text-xl font-medium text-white"
+        >
           <span className="text-xl">
             <GoChevronLeft />
           </span>{" "}
           Back
-        </button>
+        </a>
 
-        <button className="inline-flex items-center gap-4 rounded-lg bg-blue-400 px-8 py-2 text-xl font-medium text-white">
+        <a
+          href="/portalStep5"
+          className="inline-flex items-center gap-4 rounded-lg bg-blue-400 px-8 py-2 text-xl font-medium text-white"
+        >
           Next
           <span className="text-xl">
             <GoChevronRight />
           </span>{" "}
-        </button>
+        </a>
       </div>
     </section>
   );

@@ -131,7 +131,7 @@ const LoginPage = () => {
               </div>
 
               {/* Login Button */}
-              <Link to="/LandingPage">
+              <Link to="/landing">
                 <button
                   className="mt-8 w-full cursor-pointer rounded-xl py-5 text-xl text-white hover:bg-gray-300 focus:ring-2 focus:ring-gray-300 focus:outline-none"
                   style={{
