@@ -1,8 +1,8 @@
 import Navbar from "../Component3/Header2"; 
-import Steps from "./Components/Steps";
-import Application2 from "./Components/Application2";
+import Steps from "../Components4/Steps";
+import Application2 from "../Components4/Application2";
 
-import Background from "./Components/Background";
+import Background from "../Components4/Background";
 
 import { useState, useEffect } from "react";
 

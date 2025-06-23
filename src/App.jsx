@@ -7,15 +7,12 @@ import {
 import React from "react";
 
 import ApplicationPage from "./Pages/ApplicationPage";
-// import Applicationportalthree from "./Pages/Applicationportalthree";
 import Ghanapage from "./Pages/Ghanapage";
 import LandingPage from "./Pages/LandingPage";
 import LoginPage from "./Pages/LoginPage";
 import PortalSteps4 from "./Pages/PortalStep4";
 import PortalSteps1 from "./Pages/PortalSteps1";
 import PortalSteps5 from "./Pages/PortalStep5";
-// import Scholarshiportal from "./Pages/Scholarshiportal";
-// import ScholarshipSearch from "./Pages/ScholarshipSearch";
 import ScholarshipSecondPortal from "./Pages/ScholarshipSecondPortal";
 import SignUpPage from "./Pages/SignUpPage";
 import Step3 from "./Pages/Step3";

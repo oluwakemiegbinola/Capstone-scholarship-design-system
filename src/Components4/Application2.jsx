@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Application2 = () => {
   const [step, setStep] = useState(1);
+  const navigate = useNavigate();
 
-  const nextStep = () => {
-    if (step < 5) setStep(step + 1);
+  const handleBack = () => {
+    navigate('/ghanapage');
   };
 
-  const prevStep = () => {
-    if (step > 1) setStep(step - 1);
+  const handleNext = () => {
+    navigate('/application');
   };
 
   return (
@@ -121,24 +123,20 @@ const Application2 = () => {
       </div>
 
       {/* Bottom Navigation - Back Left, Next Right */}
-<div className="w-full px-4 py-4 flex justify-between items-center bg-white">
-  <button
-    onClick={prevStep}
-    disabled={step === 1}
-    className="px-6 py-2 bg-gray-300 text-black rounded disabled:opacity-50"
-  >
-    Back
-  </button>
-  <button
-    onClick={nextStep}
-    disabled={step === 5}
-    className="px-6 py-2 bg-blue-600 text-white rounded disabled:opacity-50"
-  >
-    Next
-  </button>
-</div>
-
-
+      <div className="w-full px-4 py-4 flex justify-between items-center bg-white">
+        <button
+          onClick={handleBack}
+          className="px-6 py-2 bg-gray-300 text-black rounded"
+        >
+          Back
+        </button>
+        <button
+          onClick={handleNext}
+          className="px-6 py-2 bg-blue-600 text-white rounded"
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };

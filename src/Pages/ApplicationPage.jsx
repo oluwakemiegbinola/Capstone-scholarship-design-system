@@ -85,6 +85,10 @@ const ScholarshipForm = () => {
     }
   };
 
+  const handleBack = () => {
+    navigate('/portalSteps1');
+  };
+
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header */}
@@ -381,8 +385,8 @@ const ScholarshipForm = () => {
           <div className="md:col-span-3 flex justify-between mt-8">
             <button
               id="back-button"
-              type="button"
-              className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 flex items-center"
+              onClick={handleBack}
+              className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 flex items-center cursor-pointer"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
@@ -397,7 +401,7 @@ const ScholarshipForm = () => {
             >
               Next
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                <path stroke="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="auto" d="M9 5l7 7-7 7"></path>
               </svg>
             </a>
           </div>
