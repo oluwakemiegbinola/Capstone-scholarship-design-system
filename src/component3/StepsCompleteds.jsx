@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const StepsCompleted = () => {
+const StepsCompleteds = () => {
   return (
     <div className="px-8 py-14 md:py-14 flex flex-col justify-start min-h-screen ml-20 mt-15">
       {/* Confirmation Message */}
@@ -68,4 +68,4 @@ const StepsCompleted = () => {
   );
 };
 
-export default StepsCompleted;
+export default StepsCompleteds;

@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { FiEdit, FiMail, FiEye, FiEyeOff, FiArrowLeft } from "react-icons/fi";
-import watermark from "../assets/image/first.png";
-import logo from "../assets/image/nice.png";
-import mobileLogo from "../assets/image/jjy.png";
-import capeImage from "../assets/image/cape.png";
+import { FiArrowLeft, FiEdit, FiEye, FiEyeOff, FiMail } from "react-icons/fi";
 import { Link } from "react-router-dom";
+
+import capeImage from "../assets/image/cape.png";
+<<<<<<< HEAD
+import { Link } from "react-router-dom";
+=======
+import watermark from "../assets/image/first.png";
+import mobileLogo from "../assets/image/jjy.png";
+import logo from "../assets/image/nice.png";
+>>>>>>> origin/correction
 
 // Mock register function
 const register = async (userData) => {
@@ -107,7 +112,10 @@ const SignUpPage = () => {
             <p className="mt-2 hidden text-start text-base text-[#040498] md:block md:text-lg">
               Already have an account?{" "}
               <Link to="/" className="text-[#040458] hover:underline">
+<<<<<<< HEAD
             
+=======
+>>>>>>> origin/correction
                 Login
               </Link>
             </p>

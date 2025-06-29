@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import capstoneLogo from '../assets/image/nice.png';
 import bannerImage from '../assets/image/form/banner.png';
 import userProfile from '../assets/image/form/face.png';
-import pdfIcon from '../assets/image/first.png'; // Added placeholder for PDF icon
+import pdfIcon from '../assets/image/pdfIcon.png'; // Keep PDF icon
 import number1Image from '../assets/image/form/1.png';
 import number2Image from '../assets/image/form/2.png';
 import number3Image from '../assets/image/form/3.png';
@@ -20,76 +20,73 @@ const ScholarshipForm = () => {
   const [programOfStudy, setProgramOfStudy] = useState('');
   const [currentLevel, setCurrentLevel] = useState('');
   const [gpa, setGpa] = useState('');
-  const [uploadedFiles, setUploadedFiles] = useState([]);
-  const [progress, setProgress] = useState(0); // Overall progress percentage
+  const [uploadedFile, setUploadedFile] = useState(null); // Changed to single file
+  const [progress, setProgress] = useState(0);
 
   // Calculate progress whenever form fields change
   useEffect(() => {
-    const totalFields = 5; // Total number of fields
+    const totalFields = 5;
     let filledFields = 0;
 
     if (institutionName.trim()) filledFields++;
     if (programOfStudy.trim()) filledFields++;
     if (currentLevel) filledFields++;
     if (gpa.trim()) filledFields++;
-    if (uploadedFiles.length > 0) filledFields++; // Consider file upload as one field
+    if (uploadedFile) filledFields++;
 
     const progressPercentage = (filledFields / totalFields) * 100;
     setProgress(progressPercentage);
-  }, [institutionName, programOfStudy, currentLevel, gpa, uploadedFiles]);
+  }, [institutionName, programOfStudy, currentLevel, gpa, uploadedFile]);
 
   const handleFileUpload = (e) => {
-    const files = Array.from(e.target.files);
-    files.forEach(file => {
-      if (file.type !== 'application/pdf') {
-        alert(`Unsupported file type: ${file.name}. Please upload a PDF file.`);
-        return;
-      }
+    const file = e.target.files[0]; // Only take first file
+    if (!file) return;
 
-      if (file.size > 5 * 1024 * 1024) {
-        setUploadedFiles(prevFiles => [
-          ...prevFiles,
-          { name: file.name, progress: 100, status: 'Error: File size too large', error: true, size: file.size },
-        ]);
-        return;
-      }
+    if (!['application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'].includes(file.type)) {
+      alert(`Unsupported file type: ${file.name}. Please upload a Word document (.doc or .docx).`);
+      return;
+    }
 
-      const newFile = { name: file.name, progress: 0, status: 'Uploading', error: false, size: file.size };
-      setUploadedFiles(prevFiles => [...prevFiles, newFile]);
+    if (file.size > 5 * 1024 * 1024) {
+      setUploadedFile({ name: file.name, progress: 100, status: 'Error: File size too large', error: true, size: file.size });
+      return;
+    }
 
-      const reader = new FileReader();
-      reader.onload = () => {
-        let currentProgress = 0;
-        const interval = setInterval(() => {
-          currentProgress += 10;
-          if (currentProgress >= 100) {
-            clearInterval(interval);
-            setUploadedFiles(prevFiles =>
-              prevFiles.map(f => f.name === file.name ? { ...f, progress: 100, status: 'Completed' } : f)
-            );
-          } else {
-            setUploadedFiles(prevFiles =>
-              prevFiles.map(f => f.name === file.name ? { ...f, progress: currentProgress } : f)
-            );
-          }
-        }, 200);
-      };
-      reader.readAsDataURL(file);
-    });
+    const newFile = { name: file.name, progress: 0, status: 'Uploading', error: false, size: file.size };
+    setUploadedFile(newFile);
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      let currentProgress = 0;
+      const interval = setInterval(() => {
+        currentProgress += 10;
+        if (currentProgress >= 100) {
+          clearInterval(interval);
+          setUploadedFile({ ...newFile, progress: 100, status: 'Completed' });
+        } else {
+          setUploadedFile({ ...newFile, progress: currentProgress });
+        }
+      }, 200);
+    };
+    reader.readAsDataURL(file);
   };
 
-  const handleCancelUpload = (fileName) => {
-    setUploadedFiles(prevFiles => prevFiles.filter(file => file.name !== fileName));
+  const handleCancelUpload = () => {
+    setUploadedFile(null);
   };
 
   const handleNext = (e) => {
     e.preventDefault();
-    if (institutionName && programOfStudy && currentLevel && gpa && uploadedFiles.length > 0) {
+    if (institutionName && programOfStudy && currentLevel && gpa && uploadedFile) {
       setFormFilled(true);
       navigate('/step3');
     } else {
       alert('Please fill all fields and upload a transcript before proceeding.');
     }
+  };
+
+  const handleBack = () => {
+    navigate('/portalSteps1');
   };
 
   return (
@@ -322,33 +319,31 @@ const ScholarshipForm = () => {
                   <div>
                     <label className="block text-sm font-medium text-gray-700">Upload Transcript</label>
                     <div className="mt-1 border-2 border-dashed border-gray-300 rounded-md p-6 text-center">
-                      {uploadedFiles.length > 0 ? (
-                        <div>
-                          {uploadedFiles.map((file, index) => (
-                            <div key={index} className="flex items-center justify-between bg-gray-50 p-3 rounded-md mt-2">
-                              <div className="flex items-center">
-                                <img src={pdfIcon} alt="PDF Icon" className="w-6 h-6 mr-2" />
-                                <span>{file.name} ({file.progress}%)</span>
-                              </div>
-                              <div className="flex items-center">
-                                <div className="w-24 h-1 bg-gray-200 rounded-full mr-2">
-                                  <div className="h-full bg-blue-600 rounded-full" style={{ width: `${file.progress}%` }}></div>
-                                </div>
-                                <span className={file.error ? 'text-red-600' : file.progress === 100 ? 'text-green-600' : 'text-gray-600'}>
-                                  {file.status}
-                                </span>
-                                {file.progress < 100 && !file.error && (
-                                  <button
-                                    type="button"
-                                    className="ml-2 text-blue-600 hover:text-blue-800"
-                                    onClick={() => handleCancelUpload(file.name)}
-                                  >
-                                    Cancel
-                                  </button>
-                                )}
-                              </div>
+                      {uploadedFile ? (
+                        <div className="bg-gray-50 p-3 rounded-md mt-2">
+                          <div className="flex items-center justify-between mb-2">
+                            <div className="flex items-center">
+                              <img src={pdfIcon} alt="PDF Icon" className="w-6 h-6 mr-2" />
+                              <span>{uploadedFile.name} ({uploadedFile.progress}%)</span>
                             </div>
-                          ))}
+                            <div className="flex items-center">
+                              <span className={uploadedFile.error ? 'text-red-600' : uploadedFile.progress === 100 ? 'text-[#0000FE]' : 'text-gray-600'}>
+                                {uploadedFile.status}
+                              </span>
+                              {uploadedFile.progress < 100 && !uploadedFile.error && (
+                                <button
+                                  type="button"
+                                  className="ml-2 text-[#0000FE] hover:text-blue-800"
+                                  onClick={handleCancelUpload}
+                                >
+                                  Cancel
+                                </button>
+                              )}
+                            </div>
+                          </div>
+                          <div className="w-full h-1 bg-gray-200 rounded-full">
+                            <div className="h-full bg-[#0000FE] rounded-full" style={{ width: `${uploadedFile.progress}%` }}></div>
+                          </div>
                         </div>
                       ) : (
                         <>
@@ -358,10 +353,10 @@ const ScholarshipForm = () => {
                             </svg>
                           </div>
                           <p className="mt-2 text-sm text-gray-600">Choose a file or drag and drop here</p>
-                          <p className="text-xs text-red-600">*file supported: PDF format, max. 5MB</p>
+                          <p className="text-xs text-red-600">*file supported: Word format (.doc, .docx), max. 5MB</p>
                           <label className="mt-4 inline-block">
                             <span className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 cursor-pointer">Browse files</span>
-                            <input type="file" className="hidden" onChange={handleFileUpload} accept=".pdf" multiple />
+                            <input type="file" className="hidden" onChange={handleFileUpload} accept=".doc,.docx" />
                           </label>
                         </>
                       )}
@@ -390,25 +385,25 @@ const ScholarshipForm = () => {
           <div className="md:col-span-3 flex justify-between mt-8">
             <button
               id="back-button"
-              type="button"
-              className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 flex items-center"
+              onClick={handleBack}
+              className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 flex items-center cursor-pointer"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
               </svg>
               Back
             </button>
-            <button
+            <a
               id="next-button"
-              type="button"
+              href="/step3"
               className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 flex items-center"
               onClick={handleNext}
             >
               Next
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                <path stroke="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="auto" d="M9 5l7 7-7 7"></path>
               </svg>
-            </button>
+            </a>
           </div>
         </div>
       </main>
