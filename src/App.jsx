@@ -30,7 +30,7 @@ function App() {
         {/* Redirect root to /signup */}
         {/* Auth Routes */}
         <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<LoginPage />} />
         <Route path="/portalStep4" element={<PortalSteps4 />} />
         {/* Scholarship Pages */}
         {/* <Route path="/scholarship-search" element={<ScholarshipSearch />} />

@@ -5,6 +5,7 @@ import watermark from "../assets/image/first.png";
 import logo from "../assets/image/nice.png";
 import mobileLogo from "../assets/image/jjy.png";
 import capeImage from "../assets/image/cape.png";
+import { Link } from "react-router-dom";
 
 // Mock register function
 const register = async (userData) => {
@@ -105,9 +106,10 @@ const SignUpPage = () => {
             </h2>
             <p className="mt-2 hidden text-start text-base text-[#040498] md:block md:text-lg">
               Already have an account?{" "}
-              <a href="/login" className="text-[#040458] hover:underline">
+              <Link to="/" className="text-[#040458] hover:underline">
+            
                 Login
-              </a>
+              </Link>
             </p>
 
             {/* Google Sign-in Button (Mobile Only) */}
