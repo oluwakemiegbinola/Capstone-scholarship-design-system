@@ -37,10 +37,10 @@ export default function Notifications() {
 
       <div className="space-y-4">
         <div className="flex gap-10">
-          <p className="font-black">12:00</p>
+          <p className="font-black">10:00</p>
 
           <p className="flex flex-col border-l-2 border-[#99B8FF] pl-2 text-[11px]">
-            <span>2025 MTN Fully Funded</span>
+            <span>Akwa Ibom state Government Grant</span>
             <span className="font-bold">Dead Line</span>
           </p>
         </div>

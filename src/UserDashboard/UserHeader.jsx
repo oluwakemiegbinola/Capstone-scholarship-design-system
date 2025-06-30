@@ -6,7 +6,7 @@ import UserProfile from "../assets/image/user-dashboard/userprofile.png";
 
 export default function UserHeader() {
   return (
-    <div className="flex size-full items-center justify-between px-6 shadow-md">
+    <div className="flex size-full items-center justify-between px-6 shadow-2xl">
       <div>
         <img
           src={Logo}
