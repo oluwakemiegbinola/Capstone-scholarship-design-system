@@ -44,7 +44,7 @@ export default function UserNav() {
       {/* Navigation */}
       {navLists.map(({ icon, title }, index) => (
         <nav key={index}>
-          <div className="group flex cursor-pointer items-center gap-2 text-white">
+          <div className="group flex w-fit cursor-pointer items-center gap-2 text-white">
             <span className="font text-xl">{icon}</span>
 
             <p className="px-1 text-lg capitalize transition-colors duration-300 group-hover:rounded group-hover:bg-white group-hover:text-[#0000FE]">
