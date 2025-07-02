@@ -6,7 +6,7 @@ import ArrowDown from "../../assets/image/user-dashboard/arrowdown.svg";
 
 export default function SortSearchFilter() {
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       {/* Search Section */}
       <div className="rounded-md bg-[#EBEDFF] py-2 pl-6">
         <p className="flex gap-2 text-[13px] opacity-70">
