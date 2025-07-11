@@ -20,26 +20,32 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       {/* Header */}
       <Header
         setSelectedCategories={handleSetSelectedCategories}
         selectedCategories={selectedCategories}
+        className="w-full px-4 sm:px-6 lg:px-8" // Responsive padding
       />
 
       {/* Main Content */}
-      <main className="flex-grow">
-        <Hero selectedCategories={selectedCategories} />
-        <Sponsors />
-        <SlideSection />
-        <SectionB />
-        <SectionC />
-        <SectionD />
-        <SectionE />
-        <SectionF />
-        <SectionG />
-        <Footer />
+      <main className="flex-grow w-full">
+        <Hero
+          selectedCategories={selectedCategories}
+          className="w-full px-4 sm:px-6 lg:px-8" // Responsive padding
+        />
+        <Sponsors className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8" />
+        <SlideSection className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8" />
+        <SectionB className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8" />
+        <SectionC className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8" />
+        <SectionD className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8" />
+        <SectionE className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8" />
+        <SectionF className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8" />
+        <SectionG className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8" />
       </main>
+
+      {/* Footer */}
+      <Footer className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8" />
     </div>
   );
 };

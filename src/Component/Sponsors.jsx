@@ -37,16 +37,16 @@ const Sponsors = () => {
   const duplicatedLogos = [...sponsorLogos, ...sponsorLogos];
 
   return (
-    <section className="bg-white py-12">
+    <section className="bg-white py-8 sm:py-10 md:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-fadeIn">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 animate-fadeIn">
           <span className="text-[#000000]">OUR </span>
           <span className="text-[#0000FE]">TRUSTED </span>
           <span className="text-[#000000]">SPONSORS</span>
         </h2>
         {/* Subheading */}
-        <p className="text-lg text-[#0000FE] mb-8 animate-fadeIn animate-delay-100">
+        <p className="text-base sm:text-lg text-[#0000FE] mb-6 sm:mb-8 animate-fadeIn animate-delay-100">
           Partnering with top organisations to fund your future
         </p>
         {/* Sponsor Logos with Marquee Effect */}
@@ -57,7 +57,7 @@ const Sponsors = () => {
                 key={`${logo.alt}-${index}`} // Ensure unique keys for duplicated items
                 src={logo.src}
                 alt={logo.alt}
-                className="h-6 md:h-10 object-contain mx-3"
+                className="h-8 sm:h-9 md:h-10 object-contain mx-2 sm:mx-3"
                 onError={(e) => console.error(`Failed to load image: ${logo.src}`)}
                 loading="lazy"
               />
@@ -105,7 +105,12 @@ const Sponsors = () => {
         }
         .animate-marquee {
           display: flex;
-          animation: marquee 20s linear infinite;
+          animation: marquee 15s linear infinite;
+        }
+        @media (max-width: 640px) {
+          .animate-marquee {
+            animation-duration: 12s;
+          }
         }
       `}</style>
     </section>

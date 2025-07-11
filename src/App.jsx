@@ -10,13 +10,15 @@ import ApplicationPage from "./Pages/ApplicationPage";
 import Ghanapage from "./Pages/Ghanapage";
 import LandingPage from "./Pages/LandingPage";
 import LoginPage from "./Pages/LoginPage";
-import PortalSteps4 from "./Pages/PortalStep4";
+import PortalSteps4 from "./Pages/PortalSteps4";
 import PortalSteps1 from "./Pages/PortalSteps1";
 import PortalSteps5 from "./Pages/PortalStep5";
 import ScholarshipSecondPortal from "./Pages/ScholarshipSecondPortal";
 import SignUpPage from "./Pages/SignUpPage";
 import Step3 from "./Pages/Step3";
 import StepsCompleted from "./Pages/StepsCompleted";
+import Admin from "./Pages/Admin";
+import Dashboard from "./component5/Dashboard";
 
 function App() {
   return (
@@ -31,7 +33,7 @@ function App() {
         <Route path="/scholarshiplisting" element={<ScholarshipSecondPortal />} />
         {/* Welcome page */}
         <Route path="/landing" element={<LandingPage />} />
-        {/* step 2 page */}
+        {/* Step 2 page */}
         <Route path="/application" element={<ApplicationPage />} />
         {/* Step 3 page */}
         <Route path="/step3" element={<Step3 />} />
@@ -39,6 +41,16 @@ function App() {
         <Route path="/steps-completed" element={<StepsCompleted />} />
         {/* Ghana page */}
         <Route path="/ghanapage" element={<Ghanapage />} />
+        {/* Admin Routes */}
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/application-management" element={<Dashboard />} />
+        <Route path="/admin/program-setup" element={<Dashboard />} />
+        <Route path="/admin/reviewer-assignment" element={<Dashboard />} />
+        <Route path="/admin/communication" element={<Dashboard />} />
+        <Route path="/admin/document-centre" element={<Dashboard />} />
+        <Route path="/admin/reports" element={<Dashboard />} />
+        <Route path="/admin/user-management" element={<Dashboard />} />
+        <Route path="/admin/settings" element={<Dashboard />} />
         {/* Fallback route for unknown paths */}
         <Route path="*" element={<Navigate to="/signup" />} />
       </Routes>

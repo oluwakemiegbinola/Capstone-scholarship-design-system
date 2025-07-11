@@ -1,7 +1,7 @@
-import Navbar from "./Components/Navbar";
-import Background from "./Components/Background";
-import Steps2 from "./Components/Steps2";
-import Sop from "./Components/Sop";
+import Navbar from "../Components4/Navbar";
+import Background from "../Components4/Background";
+import Steps2 from "../Components4/Steps2";
+import Sop from "../Components4/Sop";
 
 import { useState, useEffect } from "react";
 
