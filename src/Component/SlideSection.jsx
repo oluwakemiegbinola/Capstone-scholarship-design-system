@@ -17,10 +17,10 @@ import flutterwaveLogo from '../assets/image/logo/flutterwave.png';
 import mastercardLogo from '../assets/image/logo/mastercard-4 1.png';
 import airtelLogo from '../assets/image/logo/airtel.png';
 import bookmark from '../assets/image/icon/bookmark.png';
-import money from '../assets/image/icon/dollar.png'; // Added money image import
-import calendar from '../assets/image/icon/calender.png'; // Added calendar image import
+import money from '../assets/image/icon/dollar.png';
+import calendar from '../assets/image/icon/calender.png';
 
-const Slidesection = () => {
+const SlideSection = () => {
   const [bookmarked, setBookmarked] = useState({});
 
   const scholarships = [
@@ -125,15 +125,15 @@ const Slidesection = () => {
   };
 
   return (
-    <div className="py-10 bg-gradient-to-r from-blue-50 to-purple-50">
-      <h2 className="text-3xl font-bold text-blue-800 text-center mb-8">
+    <div className="pt-20 sm:pt-8 md:pt-10 pb-6 sm:pb-8 bg-gradient-to-r from-blue-50 to-purple-50">
+      <h2 className="text-xl sm:text-3xl font-bold text-blue-800 text-center mb-4 sm:mb-8">
         <span className="text-[#000000]">FEATURED </span>
         <span className="text-[#0000FE]">SCHOLARSHIPS</span>
       </h2>
-      <div className="max-w-6xl mx-auto px-4 relative">
+      <div className="max-w-6xl mx-auto px-2 sm:px-6 lg:px-8 relative">
         <Swiper
           modules={[Navigation, Pagination]}
-          spaceBetween={30}
+          spaceBetween={10}
           slidesPerView={3}
           slidesPerGroup={3}
           navigation={{
@@ -145,32 +145,35 @@ const Slidesection = () => {
             640: {
               slidesPerView: 1,
               slidesPerGroup: 1,
+              spaceBetween: 8,
             },
             768: {
               slidesPerView: 2,
               slidesPerGroup: 2,
+              spaceBetween: 12,
             },
             1024: {
               slidesPerView: 3,
               slidesPerGroup: 3,
+              spaceBetween: 30,
             },
           }}
-          className="relative pb-16"
+          className="relative pb-10 sm:pb-12"
         >
           {scholarships.map((scholarship, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-white rounded-lg shadow-md p-5 mx-2 flex flex-col"
-                style={{ height: "380px" }}>
+              <div className="bg-white rounded-lg shadow-md p-3 sm:p-5 mx-1 sm:mx-2 flex flex-col"
+                style={{ height: "auto", minHeight: "280px", maxHeight: "320px" }}>
                 
                 {/* Bookmark Image */}
                 <button 
-                  className="absolute top-8 right-6 z-10"
+                  className="absolute top-3 sm:top-5 right-3 sm:right-6 z-10"
                   onClick={() => toggleBookmark(index)}
                 >
                   <img 
                     src={bookmark} 
                     alt="Bookmark" 
-                    className={`w-5 h-6 ${bookmarked[index] ? "text-blue-600" : "text-gray-300"}`} 
+                    className={`w-4 h-4 sm:w-5 sm:h-6 ${bookmarked[index] ? "filter brightness-75" : "text-gray-300"}`} 
                   />
                 </button>
                 
@@ -179,28 +182,28 @@ const Slidesection = () => {
                     <img 
                       src={scholarship.logo} 
                       alt={`${scholarship.provider} logo`} 
-                      className="w-12 h-12 mr-3" 
+                      className="w-8 h-8 sm:w-12 sm:h-12 mr-2 sm:mr-3" 
                     />
                     <div>
-                      <h3 className="text-md font-semibold text-gray-800 whitespace-pre-line">{scholarship.title}</h3>
-                      <p className="text-xs text-gray-500">{scholarship.provider} • {scholarship.applicants}</p>
+                      <h3 className="text-xs sm:text-md font-semibold text-gray-800 whitespace-pre-line">{scholarship.title}</h3>
+                      <p className="text-[10px] sm:text-xs text-gray-500">{scholarship.provider} • {scholarship.applicants}</p>
                     </div>
                   </div>
 
-                  <div className="mt-7 text-gray-600 text-sm">
-                    <p className="font-semibold mb-3">
-                      <img src={money} alt="Amount" className="inline w-4 h-4 mr-4" />
+                  <div className="mt-3 sm:mt-6 text-gray-600 text-[10px] sm:text-sm">
+                    <p className="font-semibold mb-1 sm:mb-3">
+                      <img src={money} alt="Amount" className="inline w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-3" />
                       {scholarship.amount}
                     </p>
                     <p className="mt-1">
-                      <img src={calendar} alt="Deadline" className="inline w-4 h-4 mr-4" />
+                      <img src={calendar} alt="Deadline" className="inline w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-3" />
                       {scholarship.deadline} <span className="text-red-500">{scholarship.daysLeft}</span>
                     </p>
                   </div>
 
-                  <div className="flex flex-wrap gap-1 mt-3">
+                  <div className="flex flex-wrap gap-1 mt-2 sm:mt-3">
                     {scholarship.tags.map((tag, idx) => (
-                      <span key={idx} className="bg-gray-100 text-gray-600 text-xs px-1 py-2 rounded-lg gap-5">
+                      <span key={idx} className="bg-gray-100 text-gray-600 text-[9px] sm:text-xs px-1 py-0.5 sm:py-1.5 rounded-lg">
                         {tag}
                       </span>
                     ))}
@@ -208,11 +211,11 @@ const Slidesection = () => {
                 </div>
 
                 {/* Buttons closer to content */}
-                <div className="mt-16 flex justify-between">
-                  <button className="bg-gray-200 text-gray-700 px-5 py-2 text-md rounded-md hover:bg-gray-300">
+                <div className="mt-4 sm:mt-8 flex justify-between gap-2">
+                  <button className="bg-gray-200 text-gray-700 px-2 sm:px-4 py-1 sm:py-2 text-[10px] sm:text-sm rounded-md hover:bg-gray-300">
                     View Details
                   </button>
-                  <button className="bg-blue-600 text-white px-5 py-2 text-md rounded-md hover:bg-blue-700">
+                  <button className="bg-blue-600 text-white px-2 sm:px-4 py-1 sm:py-2 text-[10px] sm:text-sm rounded-md hover:bg-blue-700">
                     Quick Apply
                   </button>
                 </div>
@@ -221,16 +224,16 @@ const Slidesection = () => {
           ))}
         </Swiper>
         
-        {/* Custom Navigation Arrows */}
-        <div className="custom-swiper-prev absolute top-1/2 left-[-50px] transform -translate-y-1/2 z-20 cursor-pointer">
-          <ChevronLeftIcon className="h-12 w-12 text-[#040498]" />
+        {/* Custom Navigation Arrows - Hidden on Mobile */}
+        <div className="custom-swiper-prev hidden sm:block absolute top-1/2 left-[-20px] sm:left-[-40px] transform -translate-y-1/2 z-20 cursor-pointer">
+          <ChevronLeftIcon className="h-6 w-6 sm:h-12 sm:w-12 text-[#040498]" />
         </div>
-        <div className="custom-swiper-next absolute top-1/2 right-[-50px] transform -translate-y-1/2 z-20 cursor-pointer">
-          <ChevronRightIcon className="h-12 w-12 text-[#040498]" />
+        <div className="custom-swiper-next hidden sm:block absolute top-1/2 right-[-20px] sm:right-[-40px] transform -translate-y-1/2 z-20 cursor-pointer">
+          <ChevronRightIcon className="h-6 w-6 sm:h-12 sm:w-12 text-[#040498]" />
         </div>
       </div>
     </div>
   );
 };
 
-export default Slidesection;
+export default SlideSection;
