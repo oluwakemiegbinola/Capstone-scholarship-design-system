@@ -11,12 +11,13 @@ import Ghanapage from "./Pages/Ghanapage";
 import LandingPage from "./Pages/LandingPage";
 import LoginPage from "./Pages/LoginPage";
 import PortalSteps4 from "./Pages/PortalStep4";
-import PortalSteps1 from "./Pages/PortalSteps1";
 import PortalSteps5 from "./Pages/PortalStep5";
+import PortalSteps1 from "./Pages/PortalSteps1";
 import ScholarshipSecondPortal from "./Pages/ScholarshipSecondPortal";
 import SignUpPage from "./Pages/SignUpPage";
 import Step3 from "./Pages/Step3";
 import StepsCompleted from "./Pages/StepsCompleted";
+import UserDashboard from "./Pages/UserDashboard";
 
 function App() {
   return (
@@ -27,8 +28,12 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/portalStep4" element={<PortalSteps4 />} />
         <Route path="/portalStep5" element={<PortalSteps5 />} />
-        <Route path="/portalSteps1" element={<PortalSteps1 />} />
-        <Route path="/scholarshiplisting" element={<ScholarshipSecondPortal />} />
+        <Route path="/portalStep5" element={<PortalSteps5 />} />
+        <Route path="/user-dashboard" element={<UserDashboard />} />
+        <Route
+          path="/scholarshiplisting"
+          element={<ScholarshipSecondPortal />}
+        />
         {/* Welcome page */}
         <Route path="/landing" element={<LandingPage />} />
         {/* step 2 page */}
